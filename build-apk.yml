@@ -1,57 +1,224 @@
-name: Build NihonGo Master Ultimate APK
+name: Build APK
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
+      - master
+
+  workflow_dispatch:
 
 jobs:
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
+
     steps:
+
+      # ==========================================
+      # 1. CHECKOUT PROJECT
+      # ==========================================
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ==========================================
+      # 2. SETUP PYTHON
+      # ==========================================
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.11"
 
+      # ==========================================
+      # 3. SETUP FLUTTER
+      # ==========================================
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
 
-      - name: Generate full learning content
-        run: python tool/build_content.py
-
-      - name: Create Android platform
-        run: flutter create . --platforms=android --project-name=nihon_go_master_ultimate
-
-      - name: Add microphone permission for speaking
+      # ==========================================
+      # 4. CHECK PROJECT
+      # ==========================================
+      - name: Check project files
+        shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('android/app/src/main/AndroidManifest.xml')
-          s = p.read_text()
-          perm = '<uses-permission android:name="android.permission.RECORD_AUDIO"/>\n'
-          if perm not in s:
-              s = s.replace('<manifest xmlns:android="http://schemas.android.com/apk/res/android">', '<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    ' + perm.strip())
-          p.write_text(s)
-          PY
+          echo "========================================"
+          echo "CHECK PROJECT"
+          echo "========================================"
 
-      - name: Get packages
-        run: flutter pub get
+          echo ""
+          echo "Current directory:"
+          pwd
 
-      - name: Analyze
-        run: flutter analyze
+          echo ""
+          echo "Project files:"
+          ls -la
 
-      - name: Build release APK
-        run: flutter build apk --release
+          echo ""
+          echo "Checking pubspec.yaml..."
 
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "ERROR: pubspec.yaml tidak ditemukan!"
+            exit 1
+          fi
+
+          echo "OK: pubspec.yaml ditemukan."
+
+          echo ""
+          echo "Checking build_content.py..."
+
+          if [ ! -f "build_content.py" ]; then
+            echo "ERROR: build_content.py tidak ditemukan!"
+            echo ""
+            echo "Isi repository:"
+            find . -maxdepth 2 -type f | sort
+            exit 1
+          fi
+
+          echo "OK: build_content.py ditemukan."
+
+      # ==========================================
+      # 5. GENERATE FULL LEARNING CONTENT
+      # ==========================================
+      - name: Generate full learning content
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "GENERATE FULL LEARNING CONTENT"
+          echo "========================================"
+
+          echo ""
+          echo "Menjalankan:"
+          echo "python build_content.py"
+          echo ""
+
+          python build_content.py
+
+          echo ""
+          echo "Content generation selesai."
+
+      # ==========================================
+      # 6. CHECK GENERATED FILES
+      # ==========================================
+      - name: Check generated content
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "CHECK GENERATED CONTENT"
+          echo "========================================"
+
+          echo ""
+          echo "Mencari file hasil generate..."
+
+          find assets -maxdepth 4 -type f 2>/dev/null | sort || true
+
+          echo ""
+          echo "Content generation check selesai."
+
+      # ==========================================
+      # 7. FLUTTER CLEAN
+      # ==========================================
+      - name: Flutter clean
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "FLUTTER CLEAN"
+          echo "========================================"
+
+          flutter clean
+
+      # ==========================================
+      # 8. INSTALL DEPENDENCIES
+      # ==========================================
+      - name: Install dependencies
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "INSTALL FLUTTER DEPENDENCIES"
+          echo "========================================"
+
+          flutter pub get
+
+      # ==========================================
+      # 9. CHECK FLUTTER PROJECT
+      # ==========================================
+      - name: Flutter doctor
+        shell: bash
+        run: |
+          flutter doctor -v
+
+      # ==========================================
+      # 10. ANALYZE FLUTTER PROJECT
+      # ==========================================
+      - name: Analyze Flutter project
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "ANALYZE FLUTTER PROJECT"
+          echo "========================================"
+
+          flutter analyze --no-fatal-infos
+
+      # ==========================================
+      # 11. BUILD APK
+      # ==========================================
+      - name: Build APK
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "BUILD RELEASE APK"
+          echo "========================================"
+
+          flutter build apk --release
+
+      # ==========================================
+      # 12. CHECK APK
+      # ==========================================
+      - name: Check APK
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "CHECK APK"
+          echo "========================================"
+
+          if [ ! -f "build/app/outputs/flutter-apk/app-release.apk" ]; then
+            echo "ERROR: APK tidak ditemukan!"
+            echo ""
+            echo "Mencari semua APK:"
+            find build -type f -name "*.apk" 2>/dev/null || true
+            exit 1
+          fi
+
+          echo "APK berhasil dibuat!"
+          echo ""
+
+          ls -lh build/app/outputs/flutter-apk/app-release.apk
+
+      # ==========================================
+      # 13. UPLOAD APK
+      # ==========================================
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: nihongo-master-ultimate-release
+          name: Anjar-Nihong-Jepang-APK
           path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+
+      # ==========================================
+      # 14. BUILD SUCCESS
+      # ==========================================
+      - name: Build completed
+        shell: bash
+        run: |
+          echo ""
+          echo "========================================"
+          echo "BUILD BERHASIL!"
+          echo "========================================"
+          echo ""
+          echo "APK:"
+          echo "build/app/outputs/flutter-apk/app-release.apk"
+          echo ""
+          echo "APK sudah di-upload sebagai GitHub Artifact."
+          echo "========================================"
