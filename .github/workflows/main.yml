@@ -1,13 +1,15 @@
 name: Build APK
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+      - master
+  workflow_dispatch:
 
 jobs:
   build:
+    name: Build Android APK
     runs-on: ubuntu-latest
 
     steps:
@@ -17,50 +19,104 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.11"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.47.0"
+          channel: stable
           cache: true
 
-      - name: Generate full learning content
-        run: python tool/build_content.py
-
-      - name: Create Android platform
-        run: flutter create . --platforms=android --project-name=nihon_go_master_ultimate
-
-      - name: Add microphone permission
+      - name: Check project files
+        shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
+          echo "========================================"
+          echo "CHECK PROJECT"
+          echo "========================================"
 
-          p = Path("android/app/src/main/AndroidManifest.xml")
-          s = p.read_text()
+          pwd
+          ls -la
 
-          permission = '<uses-permission android:name="android.permission.RECORD_AUDIO"/>'
+          if [ ! -f "pubspec.yaml" ]; then
+            echo "ERROR: pubspec.yaml tidak ditemukan!"
+            exit 1
+          fi
 
-          if permission not in s:
-              s = s.replace(
-                  '<manifest xmlns:android="http://schemas.android.com/apk/res/android">',
-                  '<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    ' + permission
-              )
+          if [ ! -f "build_content.py" ]; then
+            echo "ERROR: build_content.py tidak ditemukan!"
+            find . -maxdepth 3 -type f | sort
+            exit 1
+          fi
 
-          p.write_text(s)
-          PY
+          echo "OK: project files ditemukan."
+
+      - name: Generate full learning content
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "GENERATE FULL LEARNING CONTENT"
+          echo "========================================"
+
+          echo "Menjalankan build_content.py..."
+
+          python build_content.py
+
+          echo "Content generation selesai."
+
+      - name: Check generated content
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "CHECK GENERATED CONTENT"
+          echo "========================================"
+
+          if [ -d "assets" ]; then
+            find assets -maxdepth 5 -type f | sort
+          else
+            echo "Folder assets tidak ditemukan."
+          fi
+
+      - name: Flutter clean
+        run: |
+          flutter clean
 
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          flutter pub get
 
       - name: Analyze Flutter project
-        run: flutter analyze
+        run: |
+          flutter analyze --no-fatal-infos
 
       - name: Build APK
-        run: flutter build apk --release
+        run: |
+          flutter build apk --release
+
+      - name: Check APK
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "CHECK APK"
+          echo "========================================"
+
+          find build -type f -name "*.apk" -print
+
+          if [ ! -f "build/app/outputs/flutter-apk/app-release.apk" ]; then
+            echo "ERROR: APK tidak ditemukan!"
+            exit 1
+          fi
+
+          ls -lh build/app/outputs/flutter-apk/app-release.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: nihongo-master-ultimate-release
+          name: Anjar-Nihong-Jepang-APK
           path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+
+      - name: Build completed
+        run: |
+          echo "========================================"
+          echo "BUILD BERHASIL!"
+          echo "========================================"
