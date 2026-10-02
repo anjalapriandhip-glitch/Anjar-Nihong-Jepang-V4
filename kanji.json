@@ -1,0 +1,692 @@
+[
+  {
+    "char": "日",
+    "reading": "にち・ひ",
+    "meaning": "hari, matahari",
+    "level": "N5"
+  },
+  {
+    "char": "月",
+    "reading": "げつ・つき",
+    "meaning": "bulan",
+    "level": "N5"
+  },
+  {
+    "char": "火",
+    "reading": "か・ひ",
+    "meaning": "api",
+    "level": "N5"
+  },
+  {
+    "char": "水",
+    "reading": "すい・みず",
+    "meaning": "air",
+    "level": "N5"
+  },
+  {
+    "char": "木",
+    "reading": "もく・き",
+    "meaning": "pohon",
+    "level": "N5"
+  },
+  {
+    "char": "金",
+    "reading": "きん・かね",
+    "meaning": "emas, uang",
+    "level": "N5"
+  },
+  {
+    "char": "土",
+    "reading": "ど・つち",
+    "meaning": "tanah",
+    "level": "N5"
+  },
+  {
+    "char": "人",
+    "reading": "じん・ひと",
+    "meaning": "orang",
+    "level": "N5"
+  },
+  {
+    "char": "一",
+    "reading": "いち",
+    "meaning": "satu",
+    "level": "N5"
+  },
+  {
+    "char": "二",
+    "reading": "に",
+    "meaning": "dua",
+    "level": "N5"
+  },
+  {
+    "char": "三",
+    "reading": "さん",
+    "meaning": "tiga",
+    "level": "N5"
+  },
+  {
+    "char": "四",
+    "reading": "し・よん",
+    "meaning": "empat",
+    "level": "N5"
+  },
+  {
+    "char": "五",
+    "reading": "ご",
+    "meaning": "lima",
+    "level": "N5"
+  },
+  {
+    "char": "六",
+    "reading": "ろく",
+    "meaning": "enam",
+    "level": "N5"
+  },
+  {
+    "char": "七",
+    "reading": "しち・なな",
+    "meaning": "tujuh",
+    "level": "N5"
+  },
+  {
+    "char": "八",
+    "reading": "はち",
+    "meaning": "delapan",
+    "level": "N5"
+  },
+  {
+    "char": "九",
+    "reading": "きゅう",
+    "meaning": "sembilan",
+    "level": "N5"
+  },
+  {
+    "char": "十",
+    "reading": "じゅう",
+    "meaning": "sepuluh",
+    "level": "N5"
+  },
+  {
+    "char": "百",
+    "reading": "ひゃく",
+    "meaning": "seratus",
+    "level": "N5"
+  },
+  {
+    "char": "千",
+    "reading": "せん",
+    "meaning": "seribu",
+    "level": "N5"
+  },
+  {
+    "char": "万",
+    "reading": "まん",
+    "meaning": "sepuluh ribu",
+    "level": "N5"
+  },
+  {
+    "char": "円",
+    "reading": "えん",
+    "meaning": "yen",
+    "level": "N5"
+  },
+  {
+    "char": "年",
+    "reading": "ねん・とし",
+    "meaning": "tahun",
+    "level": "N5"
+  },
+  {
+    "char": "時",
+    "reading": "じ・とき",
+    "meaning": "waktu/jam",
+    "level": "N5"
+  },
+  {
+    "char": "分",
+    "reading": "ぶん・ふん",
+    "meaning": "menit/bagian",
+    "level": "N5"
+  },
+  {
+    "char": "半",
+    "reading": "はん",
+    "meaning": "setengah",
+    "level": "N5"
+  },
+  {
+    "char": "今",
+    "reading": "こん・いま",
+    "meaning": "sekarang",
+    "level": "N5"
+  },
+  {
+    "char": "前",
+    "reading": "ぜん・まえ",
+    "meaning": "depan/sebelum",
+    "level": "N5"
+  },
+  {
+    "char": "後",
+    "reading": "ご・あと",
+    "meaning": "belakang/setelah",
+    "level": "N5"
+  },
+  {
+    "char": "午",
+    "reading": "ご",
+    "meaning": "siang (午前/午後)",
+    "level": "N5"
+  },
+  {
+    "char": "毎",
+    "reading": "まい",
+    "meaning": "setiap",
+    "level": "N5"
+  },
+  {
+    "char": "週",
+    "reading": "しゅう",
+    "meaning": "minggu",
+    "level": "N5"
+  },
+  {
+    "char": "曜",
+    "reading": "よう",
+    "meaning": "hari dalam minggu",
+    "level": "N5"
+  },
+  {
+    "char": "間",
+    "reading": "かん・あいだ",
+    "meaning": "interval/antara",
+    "level": "N5"
+  },
+  {
+    "char": "上",
+    "reading": "じょう・うえ",
+    "meaning": "atas",
+    "level": "N5"
+  },
+  {
+    "char": "下",
+    "reading": "か・した",
+    "meaning": "bawah",
+    "level": "N5"
+  },
+  {
+    "char": "中",
+    "reading": "ちゅう・なか",
+    "meaning": "tengah/dalam",
+    "level": "N5"
+  },
+  {
+    "char": "外",
+    "reading": "がい・そと",
+    "meaning": "luar",
+    "level": "N5"
+  },
+  {
+    "char": "右",
+    "reading": "う・みぎ",
+    "meaning": "kanan",
+    "level": "N5"
+  },
+  {
+    "char": "左",
+    "reading": "さ・ひだり",
+    "meaning": "kiri",
+    "level": "N5"
+  },
+  {
+    "char": "東",
+    "reading": "とう・ひがし",
+    "meaning": "timur",
+    "level": "N5"
+  },
+  {
+    "char": "西",
+    "reading": "せい・にし",
+    "meaning": "barat",
+    "level": "N5"
+  },
+  {
+    "char": "南",
+    "reading": "なん・みなみ",
+    "meaning": "selatan",
+    "level": "N5"
+  },
+  {
+    "char": "北",
+    "reading": "ほく・きた",
+    "meaning": "utara",
+    "level": "N5"
+  },
+  {
+    "char": "口",
+    "reading": "こう・くち",
+    "meaning": "mulut",
+    "level": "N5"
+  },
+  {
+    "char": "目",
+    "reading": "もく・め",
+    "meaning": "mata",
+    "level": "N5"
+  },
+  {
+    "char": "耳",
+    "reading": "じ・みみ",
+    "meaning": "telinga",
+    "level": "N5"
+  },
+  {
+    "char": "手",
+    "reading": "しゅ・て",
+    "meaning": "tangan",
+    "level": "N5"
+  },
+  {
+    "char": "足",
+    "reading": "そく・あし",
+    "meaning": "kaki",
+    "level": "N5"
+  },
+  {
+    "char": "力",
+    "reading": "りょく・ちから",
+    "meaning": "tenaga",
+    "level": "N5"
+  },
+  {
+    "char": "男",
+    "reading": "だん・おとこ",
+    "meaning": "pria",
+    "level": "N5"
+  },
+  {
+    "char": "女",
+    "reading": "じょ・おんな",
+    "meaning": "wanita",
+    "level": "N5"
+  },
+  {
+    "char": "子",
+    "reading": "し・こ",
+    "meaning": "anak",
+    "level": "N5"
+  },
+  {
+    "char": "父",
+    "reading": "ふ・ちち",
+    "meaning": "ayah",
+    "level": "N5"
+  },
+  {
+    "char": "母",
+    "reading": "ぼ・はは",
+    "meaning": "ibu",
+    "level": "N5"
+  },
+  {
+    "char": "友",
+    "reading": "ゆう・とも",
+    "meaning": "teman",
+    "level": "N5"
+  },
+  {
+    "char": "名",
+    "reading": "めい・な",
+    "meaning": "nama",
+    "level": "N5"
+  },
+  {
+    "char": "先",
+    "reading": "せん・さき",
+    "meaning": "dulu/depan",
+    "level": "N5"
+  },
+  {
+    "char": "生",
+    "reading": "せい・い",
+    "meaning": "hidup/lahir",
+    "level": "N5"
+  },
+  {
+    "char": "学",
+    "reading": "がく・まな",
+    "meaning": "belajar",
+    "level": "N5"
+  },
+  {
+    "char": "校",
+    "reading": "こう",
+    "meaning": "sekolah",
+    "level": "N5"
+  },
+  {
+    "char": "文",
+    "reading": "ぶん",
+    "meaning": "kalimat/budaya",
+    "level": "N5"
+  },
+  {
+    "char": "字",
+    "reading": "じ",
+    "meaning": "huruf",
+    "level": "N5"
+  },
+  {
+    "char": "本",
+    "reading": "ほん・もと",
+    "meaning": "buku/asal",
+    "level": "N5"
+  },
+  {
+    "char": "語",
+    "reading": "ご",
+    "meaning": "bahasa",
+    "level": "N5"
+  },
+  {
+    "char": "話",
+    "reading": "わ・はな",
+    "meaning": "bicara",
+    "level": "N5"
+  },
+  {
+    "char": "読",
+    "reading": "どく・よ",
+    "meaning": "baca",
+    "level": "N5"
+  },
+  {
+    "char": "書",
+    "reading": "しょ・か",
+    "meaning": "tulis",
+    "level": "N5"
+  },
+  {
+    "char": "聞",
+    "reading": "ぶん・き",
+    "meaning": "dengar/tanya",
+    "level": "N5"
+  },
+  {
+    "char": "言",
+    "reading": "げん・い",
+    "meaning": "kata/mengatakan",
+    "level": "N5"
+  },
+  {
+    "char": "見",
+    "reading": "けん・み",
+    "meaning": "lihat",
+    "level": "N5"
+  },
+  {
+    "char": "行",
+    "reading": "こう・い",
+    "meaning": "pergi",
+    "level": "N5"
+  },
+  {
+    "char": "来",
+    "reading": "らい・く",
+    "meaning": "datang",
+    "level": "N5"
+  },
+  {
+    "char": "帰",
+    "reading": "き・かえ",
+    "meaning": "pulang",
+    "level": "N5"
+  },
+  {
+    "char": "食",
+    "reading": "しょく・た",
+    "meaning": "makan",
+    "level": "N5"
+  },
+  {
+    "char": "飲",
+    "reading": "いん・の",
+    "meaning": "minum",
+    "level": "N5"
+  },
+  {
+    "char": "買",
+    "reading": "ばい・か",
+    "meaning": "beli",
+    "level": "N5"
+  },
+  {
+    "char": "売",
+    "reading": "ばい・う",
+    "meaning": "jual",
+    "level": "N5"
+  },
+  {
+    "char": "車",
+    "reading": "しゃ・くるま",
+    "meaning": "kendaraan",
+    "level": "N5"
+  },
+  {
+    "char": "電",
+    "reading": "でん",
+    "meaning": "listrik",
+    "level": "N5"
+  },
+  {
+    "char": "駅",
+    "reading": "えき",
+    "meaning": "stasiun",
+    "level": "N5"
+  },
+  {
+    "char": "道",
+    "reading": "どう・みち",
+    "meaning": "jalan",
+    "level": "N5"
+  },
+  {
+    "char": "店",
+    "reading": "てん・みせ",
+    "meaning": "toko",
+    "level": "N5"
+  },
+  {
+    "char": "家",
+    "reading": "か・いえ",
+    "meaning": "rumah",
+    "level": "N5"
+  },
+  {
+    "char": "室",
+    "reading": "しつ・むろ",
+    "meaning": "ruangan",
+    "level": "N5"
+  },
+  {
+    "char": "国",
+    "reading": "こく・くに",
+    "meaning": "negara",
+    "level": "N5"
+  },
+  {
+    "char": "天",
+    "reading": "てん",
+    "meaning": "langit",
+    "level": "N5"
+  },
+  {
+    "char": "気",
+    "reading": "き・け",
+    "meaning": "energi/suasana",
+    "level": "N5"
+  },
+  {
+    "char": "雨",
+    "reading": "う・あめ",
+    "meaning": "hujan",
+    "level": "N5"
+  },
+  {
+    "char": "雪",
+    "reading": "せつ・ゆき",
+    "meaning": "salju",
+    "level": "N5"
+  },
+  {
+    "char": "風",
+    "reading": "ふう・かぜ",
+    "meaning": "angin",
+    "level": "N5"
+  },
+  {
+    "char": "山",
+    "reading": "さん・やま",
+    "meaning": "gunung",
+    "level": "N5"
+  },
+  {
+    "char": "川",
+    "reading": "せん・かわ",
+    "meaning": "sungai",
+    "level": "N5"
+  },
+  {
+    "char": "田",
+    "reading": "でん・た",
+    "meaning": "sawah",
+    "level": "N5"
+  },
+  {
+    "char": "空",
+    "reading": "くう・そら",
+    "meaning": "langit/kosong",
+    "level": "N5"
+  },
+  {
+    "char": "花",
+    "reading": "か・はな",
+    "meaning": "bunga",
+    "level": "N5"
+  },
+  {
+    "char": "魚",
+    "reading": "ぎょ・さかな",
+    "meaning": "ikan",
+    "level": "N5"
+  },
+  {
+    "char": "犬",
+    "reading": "けん・いぬ",
+    "meaning": "anjing",
+    "level": "N5"
+  },
+  {
+    "char": "猫",
+    "reading": "びょう・ねこ",
+    "meaning": "kucing",
+    "level": "N5"
+  },
+  {
+    "char": "白",
+    "reading": "はく・しろ",
+    "meaning": "putih",
+    "level": "N5"
+  },
+  {
+    "char": "黒",
+    "reading": "こく・くろ",
+    "meaning": "hitam",
+    "level": "N5"
+  },
+  {
+    "char": "赤",
+    "reading": "せき・あか",
+    "meaning": "merah",
+    "level": "N5"
+  },
+  {
+    "char": "青",
+    "reading": "せい・あお",
+    "meaning": "biru",
+    "level": "N5"
+  },
+  {
+    "char": "高",
+    "reading": "こう・たか",
+    "meaning": "tinggi/mahal",
+    "level": "N5"
+  },
+  {
+    "char": "安",
+    "reading": "あん・やす",
+    "meaning": "murah/aman",
+    "level": "N5"
+  },
+  {
+    "char": "大",
+    "reading": "だい・おお",
+    "meaning": "besar",
+    "level": "N5"
+  },
+  {
+    "char": "小",
+    "reading": "しょう・ちい",
+    "meaning": "kecil",
+    "level": "N5"
+  },
+  {
+    "char": "新",
+    "reading": "しん・あたら",
+    "meaning": "baru",
+    "level": "N5"
+  },
+  {
+    "char": "古",
+    "reading": "こ・ふる",
+    "meaning": "lama",
+    "level": "N5"
+  },
+  {
+    "char": "長",
+    "reading": "ちょう・なが",
+    "meaning": "panjang",
+    "level": "N5"
+  },
+  {
+    "char": "多",
+    "reading": "た・おお",
+    "meaning": "banyak",
+    "level": "N5"
+  },
+  {
+    "char": "少",
+    "reading": "しょう・すく",
+    "meaning": "sedikit",
+    "level": "N5"
+  },
+  {
+    "char": "早",
+    "reading": "そう・はや",
+    "meaning": "cepat/awal",
+    "level": "N5"
+  },
+  {
+    "char": "明",
+    "reading": "めい・あか",
+    "meaning": "terang",
+    "level": "N5"
+  },
+  {
+    "char": "休",
+    "reading": "きゅう・やす",
+    "meaning": "istirahat",
+    "level": "N5"
+  }
+]

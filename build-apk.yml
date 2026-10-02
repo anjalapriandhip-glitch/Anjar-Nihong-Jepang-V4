@@ -1,0 +1,57 @@
+name: Build NihonGo Master Ultimate APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Generate full learning content
+        run: python tool/build_content.py
+
+      - name: Create Android platform
+        run: flutter create . --platforms=android --project-name=nihon_go_master_ultimate
+
+      - name: Add microphone permission for speaking
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('android/app/src/main/AndroidManifest.xml')
+          s = p.read_text()
+          perm = '<uses-permission android:name="android.permission.RECORD_AUDIO"/>\n'
+          if perm not in s:
+              s = s.replace('<manifest xmlns:android="http://schemas.android.com/apk/res/android">', '<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    ' + perm.strip())
+          p.write_text(s)
+          PY
+
+      - name: Get packages
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: nihongo-master-ultimate-release
+          path: build/app/outputs/flutter-apk/app-release.apk

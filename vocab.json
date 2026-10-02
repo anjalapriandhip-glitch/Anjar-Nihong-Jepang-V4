@@ -1,0 +1,1514 @@
+[
+  {
+    "jp": "こんにちは",
+    "romaji": "konnichiwa",
+    "meaning": "halo/selamat siang",
+    "level": "N5"
+  },
+  {
+    "jp": "おはよう",
+    "romaji": "ohayou",
+    "meaning": "selamat pagi",
+    "level": "N5"
+  },
+  {
+    "jp": "おはようございます",
+    "romaji": "ohayou gozaimasu",
+    "meaning": "selamat pagi (sopan)",
+    "level": "N5"
+  },
+  {
+    "jp": "こんばんは",
+    "romaji": "konbanwa",
+    "meaning": "selamat malam",
+    "level": "N5"
+  },
+  {
+    "jp": "ありがとう",
+    "romaji": "arigatou",
+    "meaning": "terima kasih",
+    "level": "N5"
+  },
+  {
+    "jp": "ありがとうございます",
+    "romaji": "arigatou gozaimasu",
+    "meaning": "terima kasih (sopan)",
+    "level": "N5"
+  },
+  {
+    "jp": "すみません",
+    "romaji": "sumimasen",
+    "meaning": "permisi/maaf",
+    "level": "N5"
+  },
+  {
+    "jp": "ごめんなさい",
+    "romaji": "gomennasai",
+    "meaning": "maaf",
+    "level": "N5"
+  },
+  {
+    "jp": "さようなら",
+    "romaji": "sayounara",
+    "meaning": "selamat tinggal",
+    "level": "N5"
+  },
+  {
+    "jp": "またね",
+    "romaji": "mata ne",
+    "meaning": "sampai jumpa",
+    "level": "N5"
+  },
+  {
+    "jp": "はい",
+    "romaji": "hai",
+    "meaning": "ya",
+    "level": "N5"
+  },
+  {
+    "jp": "いいえ",
+    "romaji": "iie",
+    "meaning": "tidak",
+    "level": "N5"
+  },
+  {
+    "jp": "お願いします",
+    "romaji": "onegaishimasu",
+    "meaning": "tolong/mohon",
+    "level": "N5"
+  },
+  {
+    "jp": "どうぞ",
+    "romaji": "douzo",
+    "meaning": "silakan",
+    "level": "N5"
+  },
+  {
+    "jp": "どうも",
+    "romaji": "doumo",
+    "meaning": "terima kasih/halo (kasual)",
+    "level": "N5"
+  },
+  {
+    "jp": "わかります",
+    "romaji": "wakarimasu",
+    "meaning": "mengerti",
+    "level": "N5"
+  },
+  {
+    "jp": "わかりません",
+    "romaji": "wakarimasen",
+    "meaning": "tidak mengerti",
+    "level": "N5"
+  },
+  {
+    "jp": "日本",
+    "romaji": "nihon",
+    "meaning": "Jepang",
+    "level": "N5"
+  },
+  {
+    "jp": "日本語",
+    "romaji": "nihongo",
+    "meaning": "bahasa Jepang",
+    "level": "N5"
+  },
+  {
+    "jp": "人",
+    "romaji": "hito",
+    "meaning": "orang",
+    "level": "N5"
+  },
+  {
+    "jp": "男",
+    "romaji": "otoko",
+    "meaning": "pria",
+    "level": "N5"
+  },
+  {
+    "jp": "女",
+    "romaji": "onna",
+    "meaning": "wanita",
+    "level": "N5"
+  },
+  {
+    "jp": "男の子",
+    "romaji": "otoko no ko",
+    "meaning": "anak laki-laki",
+    "level": "N5"
+  },
+  {
+    "jp": "女の子",
+    "romaji": "onna no ko",
+    "meaning": "anak perempuan",
+    "level": "N5"
+  },
+  {
+    "jp": "子ども",
+    "romaji": "kodomo",
+    "meaning": "anak",
+    "level": "N5"
+  },
+  {
+    "jp": "友達",
+    "romaji": "tomodachi",
+    "meaning": "teman",
+    "level": "N5"
+  },
+  {
+    "jp": "先生",
+    "romaji": "sensei",
+    "meaning": "guru",
+    "level": "N5"
+  },
+  {
+    "jp": "学生",
+    "romaji": "gakusei",
+    "meaning": "pelajar",
+    "level": "N5"
+  },
+  {
+    "jp": "会社員",
+    "romaji": "kaishain",
+    "meaning": "pegawai perusahaan",
+    "level": "N5"
+  },
+  {
+    "jp": "家族",
+    "romaji": "kazoku",
+    "meaning": "keluarga",
+    "level": "N5"
+  },
+  {
+    "jp": "父",
+    "romaji": "chichi",
+    "meaning": "ayah (sendiri)",
+    "level": "N5"
+  },
+  {
+    "jp": "母",
+    "romaji": "haha",
+    "meaning": "ibu (sendiri)",
+    "level": "N5"
+  },
+  {
+    "jp": "お父さん",
+    "romaji": "otousan",
+    "meaning": "ayah",
+    "level": "N5"
+  },
+  {
+    "jp": "お母さん",
+    "romaji": "okaasan",
+    "meaning": "ibu",
+    "level": "N5"
+  },
+  {
+    "jp": "兄",
+    "romaji": "ani",
+    "meaning": "kakak laki-laki",
+    "level": "N5"
+  },
+  {
+    "jp": "姉",
+    "romaji": "ane",
+    "meaning": "kakak perempuan",
+    "level": "N5"
+  },
+  {
+    "jp": "弟",
+    "romaji": "otouto",
+    "meaning": "adik laki-laki",
+    "level": "N5"
+  },
+  {
+    "jp": "妹",
+    "romaji": "imouto",
+    "meaning": "adik perempuan",
+    "level": "N5"
+  },
+  {
+    "jp": "家",
+    "romaji": "ie",
+    "meaning": "rumah",
+    "level": "N5"
+  },
+  {
+    "jp": "部屋",
+    "romaji": "heya",
+    "meaning": "kamar",
+    "level": "N5"
+  },
+  {
+    "jp": "学校",
+    "romaji": "gakkou",
+    "meaning": "sekolah",
+    "level": "N5"
+  },
+  {
+    "jp": "大学",
+    "romaji": "daigaku",
+    "meaning": "universitas",
+    "level": "N5"
+  },
+  {
+    "jp": "会社",
+    "romaji": "kaisha",
+    "meaning": "perusahaan",
+    "level": "N5"
+  },
+  {
+    "jp": "駅",
+    "romaji": "eki",
+    "meaning": "stasiun",
+    "level": "N5"
+  },
+  {
+    "jp": "病院",
+    "romaji": "byouin",
+    "meaning": "rumah sakit",
+    "level": "N5"
+  },
+  {
+    "jp": "銀行",
+    "romaji": "ginkou",
+    "meaning": "bank",
+    "level": "N5"
+  },
+  {
+    "jp": "店",
+    "romaji": "mise",
+    "meaning": "toko",
+    "level": "N5"
+  },
+  {
+    "jp": "図書館",
+    "romaji": "toshokan",
+    "meaning": "perpustakaan",
+    "level": "N5"
+  },
+  {
+    "jp": "公園",
+    "romaji": "kouen",
+    "meaning": "taman",
+    "level": "N5"
+  },
+  {
+    "jp": "国",
+    "romaji": "kuni",
+    "meaning": "negara",
+    "level": "N5"
+  },
+  {
+    "jp": "町",
+    "romaji": "machi",
+    "meaning": "kota",
+    "level": "N5"
+  },
+  {
+    "jp": "道",
+    "romaji": "michi",
+    "meaning": "jalan",
+    "level": "N5"
+  },
+  {
+    "jp": "車",
+    "romaji": "kuruma",
+    "meaning": "mobil",
+    "level": "N5"
+  },
+  {
+    "jp": "電車",
+    "romaji": "densha",
+    "meaning": "kereta",
+    "level": "N5"
+  },
+  {
+    "jp": "自転車",
+    "romaji": "jitensha",
+    "meaning": "sepeda",
+    "level": "N5"
+  },
+  {
+    "jp": "飛行機",
+    "romaji": "hikouki",
+    "meaning": "pesawat",
+    "level": "N5"
+  },
+  {
+    "jp": "船",
+    "romaji": "fune",
+    "meaning": "kapal",
+    "level": "N5"
+  },
+  {
+    "jp": "駅前",
+    "romaji": "ekimae",
+    "meaning": "depan stasiun",
+    "level": "N4"
+  },
+  {
+    "jp": "食べる",
+    "romaji": "taberu",
+    "meaning": "makan",
+    "level": "N5"
+  },
+  {
+    "jp": "飲む",
+    "romaji": "nomu",
+    "meaning": "minum",
+    "level": "N5"
+  },
+  {
+    "jp": "見る",
+    "romaji": "miru",
+    "meaning": "melihat",
+    "level": "N5"
+  },
+  {
+    "jp": "聞く",
+    "romaji": "kiku",
+    "meaning": "mendengar/bertanya",
+    "level": "N5"
+  },
+  {
+    "jp": "話す",
+    "romaji": "hanasu",
+    "meaning": "berbicara",
+    "level": "N5"
+  },
+  {
+    "jp": "読む",
+    "romaji": "yomu",
+    "meaning": "membaca",
+    "level": "N5"
+  },
+  {
+    "jp": "書く",
+    "romaji": "kaku",
+    "meaning": "menulis",
+    "level": "N5"
+  },
+  {
+    "jp": "行く",
+    "romaji": "iku",
+    "meaning": "pergi",
+    "level": "N5"
+  },
+  {
+    "jp": "来る",
+    "romaji": "kuru",
+    "meaning": "datang",
+    "level": "N5"
+  },
+  {
+    "jp": "帰る",
+    "romaji": "kaeru",
+    "meaning": "pulang",
+    "level": "N5"
+  },
+  {
+    "jp": "買う",
+    "romaji": "kau",
+    "meaning": "membeli",
+    "level": "N5"
+  },
+  {
+    "jp": "売る",
+    "romaji": "uru",
+    "meaning": "menjual",
+    "level": "N5"
+  },
+  {
+    "jp": "使う",
+    "romaji": "tsukau",
+    "meaning": "menggunakan",
+    "level": "N5"
+  },
+  {
+    "jp": "作る",
+    "romaji": "tsukuru",
+    "meaning": "membuat",
+    "level": "N5"
+  },
+  {
+    "jp": "する",
+    "romaji": "suru",
+    "meaning": "melakukan",
+    "level": "N5"
+  },
+  {
+    "jp": "勉強する",
+    "romaji": "benkyou suru",
+    "meaning": "belajar",
+    "level": "N5"
+  },
+  {
+    "jp": "働く",
+    "romaji": "hataraku",
+    "meaning": "bekerja",
+    "level": "N5"
+  },
+  {
+    "jp": "休む",
+    "romaji": "yasumu",
+    "meaning": "beristirahat/libur",
+    "level": "N5"
+  },
+  {
+    "jp": "寝る",
+    "romaji": "neru",
+    "meaning": "tidur",
+    "level": "N5"
+  },
+  {
+    "jp": "起きる",
+    "romaji": "okiru",
+    "meaning": "bangun",
+    "level": "N5"
+  },
+  {
+    "jp": "会う",
+    "romaji": "au",
+    "meaning": "bertemu",
+    "level": "N5"
+  },
+  {
+    "jp": "待つ",
+    "romaji": "matsu",
+    "meaning": "menunggu",
+    "level": "N5"
+  },
+  {
+    "jp": "持つ",
+    "romaji": "motsu",
+    "meaning": "membawa/memiliki",
+    "level": "N5"
+  },
+  {
+    "jp": "住む",
+    "romaji": "sumu",
+    "meaning": "tinggal",
+    "level": "N5"
+  },
+  {
+    "jp": "知る",
+    "romaji": "shiru",
+    "meaning": "mengetahui",
+    "level": "N5"
+  },
+  {
+    "jp": "思う",
+    "romaji": "omou",
+    "meaning": "berpikir/merasa",
+    "level": "N4"
+  },
+  {
+    "jp": "言う",
+    "romaji": "iu",
+    "meaning": "mengatakan",
+    "level": "N5"
+  },
+  {
+    "jp": "教える",
+    "romaji": "oshieru",
+    "meaning": "mengajar/memberi tahu",
+    "level": "N5"
+  },
+  {
+    "jp": "習う",
+    "romaji": "narau",
+    "meaning": "mempelajari dari seseorang",
+    "level": "N5"
+  },
+  {
+    "jp": "分かる",
+    "romaji": "wakaru",
+    "meaning": "memahami",
+    "level": "N5"
+  },
+  {
+    "jp": "入る",
+    "romaji": "hairu",
+    "meaning": "masuk",
+    "level": "N5"
+  },
+  {
+    "jp": "出る",
+    "romaji": "deru",
+    "meaning": "keluar",
+    "level": "N5"
+  },
+  {
+    "jp": "開ける",
+    "romaji": "akeru",
+    "meaning": "membuka",
+    "level": "N5"
+  },
+  {
+    "jp": "閉める",
+    "romaji": "shimeru",
+    "meaning": "menutup",
+    "level": "N5"
+  },
+  {
+    "jp": "始める",
+    "romaji": "hajimeru",
+    "meaning": "memulai",
+    "level": "N5"
+  },
+  {
+    "jp": "終わる",
+    "romaji": "owaru",
+    "meaning": "selesai",
+    "level": "N5"
+  },
+  {
+    "jp": "ある",
+    "romaji": "aru",
+    "meaning": "ada (benda)",
+    "level": "N5"
+  },
+  {
+    "jp": "いる",
+    "romaji": "iru",
+    "meaning": "ada (makhluk hidup)",
+    "level": "N5"
+  },
+  {
+    "jp": "いい",
+    "romaji": "ii",
+    "meaning": "baik/bagus",
+    "level": "N5"
+  },
+  {
+    "jp": "大きい",
+    "romaji": "ookii",
+    "meaning": "besar",
+    "level": "N5"
+  },
+  {
+    "jp": "小さい",
+    "romaji": "chiisai",
+    "meaning": "kecil",
+    "level": "N5"
+  },
+  {
+    "jp": "新しい",
+    "romaji": "atarashii",
+    "meaning": "baru",
+    "level": "N5"
+  },
+  {
+    "jp": "古い",
+    "romaji": "furui",
+    "meaning": "lama/tua",
+    "level": "N5"
+  },
+  {
+    "jp": "高い",
+    "romaji": "takai",
+    "meaning": "tinggi/mahal",
+    "level": "N5"
+  },
+  {
+    "jp": "安い",
+    "romaji": "yasui",
+    "meaning": "murah",
+    "level": "N5"
+  },
+  {
+    "jp": "暑い",
+    "romaji": "atsui",
+    "meaning": "panas (cuaca)",
+    "level": "N5"
+  },
+  {
+    "jp": "寒い",
+    "romaji": "samui",
+    "meaning": "dingin (cuaca)",
+    "level": "N5"
+  },
+  {
+    "jp": "熱い",
+    "romaji": "atsui",
+    "meaning": "panas (benda)",
+    "level": "N5"
+  },
+  {
+    "jp": "冷たい",
+    "romaji": "tsumetai",
+    "meaning": "dingin (benda)",
+    "level": "N5"
+  },
+  {
+    "jp": "早い",
+    "romaji": "hayai",
+    "meaning": "cepat/awal",
+    "level": "N5"
+  },
+  {
+    "jp": "遅い",
+    "romaji": "osoi",
+    "meaning": "lambat/terlambat",
+    "level": "N5"
+  },
+  {
+    "jp": "長い",
+    "romaji": "nagai",
+    "meaning": "panjang",
+    "level": "N5"
+  },
+  {
+    "jp": "短い",
+    "romaji": "mijikai",
+    "meaning": "pendek",
+    "level": "N5"
+  },
+  {
+    "jp": "多い",
+    "romaji": "ooi",
+    "meaning": "banyak",
+    "level": "N5"
+  },
+  {
+    "jp": "少ない",
+    "romaji": "sukunai",
+    "meaning": "sedikit",
+    "level": "N5"
+  },
+  {
+    "jp": "面白い",
+    "romaji": "omoshiroi",
+    "meaning": "menarik/lucu",
+    "level": "N5"
+  },
+  {
+    "jp": "楽しい",
+    "romaji": "tanoshii",
+    "meaning": "menyenangkan",
+    "level": "N5"
+  },
+  {
+    "jp": "難しい",
+    "romaji": "muzukashii",
+    "meaning": "sulit",
+    "level": "N5"
+  },
+  {
+    "jp": "簡単",
+    "romaji": "kantan",
+    "meaning": "mudah/sederhana",
+    "level": "N5"
+  },
+  {
+    "jp": "好き",
+    "romaji": "suki",
+    "meaning": "suka",
+    "level": "N5"
+  },
+  {
+    "jp": "嫌い",
+    "romaji": "kirai",
+    "meaning": "tidak suka",
+    "level": "N5"
+  },
+  {
+    "jp": "上手",
+    "romaji": "jouzu",
+    "meaning": "pandai",
+    "level": "N5"
+  },
+  {
+    "jp": "下手",
+    "romaji": "heta",
+    "meaning": "kurang pandai",
+    "level": "N5"
+  },
+  {
+    "jp": "元気",
+    "romaji": "genki",
+    "meaning": "sehat/bersemangat",
+    "level": "N5"
+  },
+  {
+    "jp": "忙しい",
+    "romaji": "isogashii",
+    "meaning": "sibuk",
+    "level": "N5"
+  },
+  {
+    "jp": "暇",
+    "romaji": "hima",
+    "meaning": "senggang",
+    "level": "N5"
+  },
+  {
+    "jp": "美味しい",
+    "romaji": "oishii",
+    "meaning": "enak",
+    "level": "N5"
+  },
+  {
+    "jp": "綺麗",
+    "romaji": "kirei",
+    "meaning": "indah/bersih",
+    "level": "N5"
+  },
+  {
+    "jp": "静か",
+    "romaji": "shizuka",
+    "meaning": "tenang",
+    "level": "N5"
+  },
+  {
+    "jp": "有名",
+    "romaji": "yuumei",
+    "meaning": "terkenal",
+    "level": "N5"
+  },
+  {
+    "jp": "大丈夫",
+    "romaji": "daijoubu",
+    "meaning": "tidak apa-apa",
+    "level": "N5"
+  },
+  {
+    "jp": "水",
+    "romaji": "mizu",
+    "meaning": "air",
+    "level": "N5"
+  },
+  {
+    "jp": "お茶",
+    "romaji": "ocha",
+    "meaning": "teh",
+    "level": "N5"
+  },
+  {
+    "jp": "ご飯",
+    "romaji": "gohan",
+    "meaning": "nasi/makanan",
+    "level": "N5"
+  },
+  {
+    "jp": "パン",
+    "romaji": "pan",
+    "meaning": "roti",
+    "level": "N5"
+  },
+  {
+    "jp": "肉",
+    "romaji": "niku",
+    "meaning": "daging",
+    "level": "N5"
+  },
+  {
+    "jp": "魚",
+    "romaji": "sakana",
+    "meaning": "ikan",
+    "level": "N5"
+  },
+  {
+    "jp": "野菜",
+    "romaji": "yasai",
+    "meaning": "sayuran",
+    "level": "N5"
+  },
+  {
+    "jp": "果物",
+    "romaji": "kudamono",
+    "meaning": "buah",
+    "level": "N5"
+  },
+  {
+    "jp": "りんご",
+    "romaji": "ringo",
+    "meaning": "apel",
+    "level": "N5"
+  },
+  {
+    "jp": "バナナ",
+    "romaji": "banana",
+    "meaning": "pisang",
+    "level": "N5"
+  },
+  {
+    "jp": "卵",
+    "romaji": "tamago",
+    "meaning": "telur",
+    "level": "N5"
+  },
+  {
+    "jp": "牛乳",
+    "romaji": "gyuunyuu",
+    "meaning": "susu",
+    "level": "N5"
+  },
+  {
+    "jp": "料理",
+    "romaji": "ryouri",
+    "meaning": "masakan/memasak",
+    "level": "N5"
+  },
+  {
+    "jp": "朝ご飯",
+    "romaji": "asagohan",
+    "meaning": "sarapan",
+    "level": "N5"
+  },
+  {
+    "jp": "昼ご飯",
+    "romaji": "hirugohan",
+    "meaning": "makan siang",
+    "level": "N5"
+  },
+  {
+    "jp": "晩ご飯",
+    "romaji": "bangohan",
+    "meaning": "makan malam",
+    "level": "N5"
+  },
+  {
+    "jp": "時間",
+    "romaji": "jikan",
+    "meaning": "waktu",
+    "level": "N5"
+  },
+  {
+    "jp": "今日",
+    "romaji": "kyou",
+    "meaning": "hari ini",
+    "level": "N5"
+  },
+  {
+    "jp": "明日",
+    "romaji": "ashita",
+    "meaning": "besok",
+    "level": "N5"
+  },
+  {
+    "jp": "昨日",
+    "romaji": "kinou",
+    "meaning": "kemarin",
+    "level": "N5"
+  },
+  {
+    "jp": "今",
+    "romaji": "ima",
+    "meaning": "sekarang",
+    "level": "N5"
+  },
+  {
+    "jp": "朝",
+    "romaji": "asa",
+    "meaning": "pagi",
+    "level": "N5"
+  },
+  {
+    "jp": "昼",
+    "romaji": "hiru",
+    "meaning": "siang",
+    "level": "N5"
+  },
+  {
+    "jp": "夜",
+    "romaji": "yoru",
+    "meaning": "malam",
+    "level": "N5"
+  },
+  {
+    "jp": "毎日",
+    "romaji": "mainichi",
+    "meaning": "setiap hari",
+    "level": "N5"
+  },
+  {
+    "jp": "毎週",
+    "romaji": "maishuu",
+    "meaning": "setiap minggu",
+    "level": "N5"
+  },
+  {
+    "jp": "毎月",
+    "romaji": "maitsuki",
+    "meaning": "setiap bulan",
+    "level": "N5"
+  },
+  {
+    "jp": "毎年",
+    "romaji": "maitoshi",
+    "meaning": "setiap tahun",
+    "level": "N5"
+  },
+  {
+    "jp": "月曜日",
+    "romaji": "getsu-youbi",
+    "meaning": "Senin",
+    "level": "N5"
+  },
+  {
+    "jp": "火曜日",
+    "romaji": "ka-youbi",
+    "meaning": "Selasa",
+    "level": "N5"
+  },
+  {
+    "jp": "水曜日",
+    "romaji": "sui-youbi",
+    "meaning": "Rabu",
+    "level": "N5"
+  },
+  {
+    "jp": "木曜日",
+    "romaji": "moku-youbi",
+    "meaning": "Kamis",
+    "level": "N5"
+  },
+  {
+    "jp": "金曜日",
+    "romaji": "kin-youbi",
+    "meaning": "Jumat",
+    "level": "N5"
+  },
+  {
+    "jp": "土曜日",
+    "romaji": "do-youbi",
+    "meaning": "Sabtu",
+    "level": "N5"
+  },
+  {
+    "jp": "日曜日",
+    "romaji": "nichi-youbi",
+    "meaning": "Minggu",
+    "level": "N5"
+  },
+  {
+    "jp": "一",
+    "romaji": "ichi",
+    "meaning": "satu",
+    "level": "N5"
+  },
+  {
+    "jp": "二",
+    "romaji": "ni",
+    "meaning": "dua",
+    "level": "N5"
+  },
+  {
+    "jp": "三",
+    "romaji": "san",
+    "meaning": "tiga",
+    "level": "N5"
+  },
+  {
+    "jp": "四",
+    "romaji": "yon",
+    "meaning": "empat",
+    "level": "N5"
+  },
+  {
+    "jp": "五",
+    "romaji": "go",
+    "meaning": "lima",
+    "level": "N5"
+  },
+  {
+    "jp": "六",
+    "romaji": "roku",
+    "meaning": "enam",
+    "level": "N5"
+  },
+  {
+    "jp": "七",
+    "romaji": "nana",
+    "meaning": "tujuh",
+    "level": "N5"
+  },
+  {
+    "jp": "八",
+    "romaji": "hachi",
+    "meaning": "delapan",
+    "level": "N5"
+  },
+  {
+    "jp": "九",
+    "romaji": "kyuu",
+    "meaning": "sembilan",
+    "level": "N5"
+  },
+  {
+    "jp": "十",
+    "romaji": "juu",
+    "meaning": "sepuluh",
+    "level": "N5"
+  },
+  {
+    "jp": "百",
+    "romaji": "hyaku",
+    "meaning": "seratus",
+    "level": "N5"
+  },
+  {
+    "jp": "千",
+    "romaji": "sen",
+    "meaning": "seribu",
+    "level": "N5"
+  },
+  {
+    "jp": "万",
+    "romaji": "man",
+    "meaning": "sepuluh ribu",
+    "level": "N5"
+  },
+  {
+    "jp": "何",
+    "romaji": "nani",
+    "meaning": "apa",
+    "level": "N5"
+  },
+  {
+    "jp": "誰",
+    "romaji": "dare",
+    "meaning": "siapa",
+    "level": "N5"
+  },
+  {
+    "jp": "どこ",
+    "romaji": "doko",
+    "meaning": "di mana",
+    "level": "N5"
+  },
+  {
+    "jp": "いつ",
+    "romaji": "itsu",
+    "meaning": "kapan",
+    "level": "N5"
+  },
+  {
+    "jp": "どうして",
+    "romaji": "doushite",
+    "meaning": "mengapa",
+    "level": "N5"
+  },
+  {
+    "jp": "どう",
+    "romaji": "dou",
+    "meaning": "bagaimana",
+    "level": "N5"
+  },
+  {
+    "jp": "これ",
+    "romaji": "kore",
+    "meaning": "ini",
+    "level": "N5"
+  },
+  {
+    "jp": "それ",
+    "romaji": "sore",
+    "meaning": "itu (dekat lawan bicara)",
+    "level": "N5"
+  },
+  {
+    "jp": "あれ",
+    "romaji": "are",
+    "meaning": "itu",
+    "level": "N5"
+  },
+  {
+    "jp": "ここ",
+    "romaji": "koko",
+    "meaning": "di sini",
+    "level": "N5"
+  },
+  {
+    "jp": "そこ",
+    "romaji": "soko",
+    "meaning": "di situ",
+    "level": "N5"
+  },
+  {
+    "jp": "あそこ",
+    "romaji": "asoko",
+    "meaning": "di sana",
+    "level": "N5"
+  },
+  {
+    "jp": "私",
+    "romaji": "watashi",
+    "meaning": "saya",
+    "level": "N5"
+  },
+  {
+    "jp": "あなた",
+    "romaji": "anata",
+    "meaning": "kamu/Anda",
+    "level": "N5"
+  },
+  {
+    "jp": "これから",
+    "romaji": "korekara",
+    "meaning": "mulai sekarang",
+    "level": "N4"
+  },
+  {
+    "jp": "一緒",
+    "romaji": "issho",
+    "meaning": "bersama",
+    "level": "N5"
+  },
+  {
+    "jp": "本当",
+    "romaji": "hontou",
+    "meaning": "benar/sungguh",
+    "level": "N5"
+  },
+  {
+    "jp": "たくさん",
+    "romaji": "takusan",
+    "meaning": "banyak",
+    "level": "N5"
+  },
+  {
+    "jp": "少し",
+    "romaji": "sukoshi",
+    "meaning": "sedikit",
+    "level": "N5"
+  },
+  {
+    "jp": "とても",
+    "romaji": "totemo",
+    "meaning": "sangat",
+    "level": "N5"
+  },
+  {
+    "jp": "もっと",
+    "romaji": "motto",
+    "meaning": "lebih",
+    "level": "N5"
+  },
+  {
+    "jp": "まだ",
+    "romaji": "mada",
+    "meaning": "masih/belum",
+    "level": "N5"
+  },
+  {
+    "jp": "もう",
+    "romaji": "mou",
+    "meaning": "sudah/lagi",
+    "level": "N5"
+  },
+  {
+    "jp": "よく",
+    "romaji": "yoku",
+    "meaning": "sering/dengan baik",
+    "level": "N5"
+  },
+  {
+    "jp": "いつも",
+    "romaji": "itsumo",
+    "meaning": "selalu",
+    "level": "N5"
+  },
+  {
+    "jp": "時々",
+    "romaji": "tokidoki",
+    "meaning": "kadang-kadang",
+    "level": "N5"
+  },
+  {
+    "jp": "一度",
+    "romaji": "ichido",
+    "meaning": "sekali",
+    "level": "N5"
+  },
+  {
+    "jp": "問題",
+    "romaji": "mondai",
+    "meaning": "masalah/soal",
+    "level": "N4"
+  },
+  {
+    "jp": "質問",
+    "romaji": "shitsumon",
+    "meaning": "pertanyaan",
+    "level": "N5"
+  },
+  {
+    "jp": "答え",
+    "romaji": "kotae",
+    "meaning": "jawaban",
+    "level": "N5"
+  },
+  {
+    "jp": "意味",
+    "romaji": "imi",
+    "meaning": "arti/makna",
+    "level": "N4"
+  },
+  {
+    "jp": "言葉",
+    "romaji": "kotoba",
+    "meaning": "kata/bahasa",
+    "level": "N5"
+  },
+  {
+    "jp": "文章",
+    "romaji": "bunshou",
+    "meaning": "kalimat/teks",
+    "level": "N4"
+  },
+  {
+    "jp": "名前",
+    "romaji": "namae",
+    "meaning": "nama",
+    "level": "N5"
+  },
+  {
+    "jp": "電話",
+    "romaji": "denwa",
+    "meaning": "telepon",
+    "level": "N5"
+  },
+  {
+    "jp": "番号",
+    "romaji": "bangou",
+    "meaning": "nomor",
+    "level": "N5"
+  },
+  {
+    "jp": "写真",
+    "romaji": "shashin",
+    "meaning": "foto",
+    "level": "N5"
+  },
+  {
+    "jp": "映画",
+    "romaji": "eiga",
+    "meaning": "film",
+    "level": "N5"
+  },
+  {
+    "jp": "音楽",
+    "romaji": "ongaku",
+    "meaning": "musik",
+    "level": "N5"
+  },
+  {
+    "jp": "本",
+    "romaji": "hon",
+    "meaning": "buku",
+    "level": "N5"
+  },
+  {
+    "jp": "新聞",
+    "romaji": "shinbun",
+    "meaning": "koran",
+    "level": "N5"
+  },
+  {
+    "jp": "手紙",
+    "romaji": "tegami",
+    "meaning": "surat",
+    "level": "N5"
+  },
+  {
+    "jp": "お金",
+    "romaji": "okane",
+    "meaning": "uang",
+    "level": "N5"
+  },
+  {
+    "jp": "財布",
+    "romaji": "saifu",
+    "meaning": "dompet",
+    "level": "N5"
+  },
+  {
+    "jp": "傘",
+    "romaji": "kasa",
+    "meaning": "payung",
+    "level": "N5"
+  },
+  {
+    "jp": "時計",
+    "romaji": "tokei",
+    "meaning": "jam",
+    "level": "N5"
+  },
+  {
+    "jp": "鍵",
+    "romaji": "kagi",
+    "meaning": "kunci",
+    "level": "N5"
+  },
+  {
+    "jp": "服",
+    "romaji": "fuku",
+    "meaning": "pakaian",
+    "level": "N5"
+  },
+  {
+    "jp": "靴",
+    "romaji": "kutsu",
+    "meaning": "sepatu",
+    "level": "N5"
+  },
+  {
+    "jp": "帽子",
+    "romaji": "boushi",
+    "meaning": "topi",
+    "level": "N5"
+  },
+  {
+    "jp": "眼鏡",
+    "romaji": "megane",
+    "meaning": "kacamata",
+    "level": "N5"
+  },
+  {
+    "jp": "手",
+    "romaji": "te",
+    "meaning": "tangan",
+    "level": "N5"
+  },
+  {
+    "jp": "目",
+    "romaji": "me",
+    "meaning": "mata",
+    "level": "N5"
+  },
+  {
+    "jp": "耳",
+    "romaji": "mimi",
+    "meaning": "telinga",
+    "level": "N5"
+  },
+  {
+    "jp": "口",
+    "romaji": "kuchi",
+    "meaning": "mulut",
+    "level": "N5"
+  },
+  {
+    "jp": "頭",
+    "romaji": "atama",
+    "meaning": "kepala",
+    "level": "N5"
+  },
+  {
+    "jp": "体",
+    "romaji": "karada",
+    "meaning": "tubuh",
+    "level": "N5"
+  },
+  {
+    "jp": "心",
+    "romaji": "kokoro",
+    "meaning": "hati/pikiran",
+    "level": "N4"
+  },
+  {
+    "jp": "天気",
+    "romaji": "tenki",
+    "meaning": "cuaca",
+    "level": "N5"
+  },
+  {
+    "jp": "雨",
+    "romaji": "ame",
+    "meaning": "hujan",
+    "level": "N5"
+  },
+  {
+    "jp": "雪",
+    "romaji": "yuki",
+    "meaning": "salju",
+    "level": "N5"
+  },
+  {
+    "jp": "風",
+    "romaji": "kaze",
+    "meaning": "angin",
+    "level": "N5"
+  },
+  {
+    "jp": "空",
+    "romaji": "sora",
+    "meaning": "langit",
+    "level": "N5"
+  },
+  {
+    "jp": "山",
+    "romaji": "yama",
+    "meaning": "gunung",
+    "level": "N5"
+  },
+  {
+    "jp": "川",
+    "romaji": "kawa",
+    "meaning": "sungai",
+    "level": "N5"
+  },
+  {
+    "jp": "海",
+    "romaji": "umi",
+    "meaning": "laut",
+    "level": "N5"
+  },
+  {
+    "jp": "花",
+    "romaji": "hana",
+    "meaning": "bunga",
+    "level": "N5"
+  },
+  {
+    "jp": "木",
+    "romaji": "ki",
+    "meaning": "pohon",
+    "level": "N5"
+  },
+  {
+    "jp": "犬",
+    "romaji": "inu",
+    "meaning": "anjing",
+    "level": "N5"
+  },
+  {
+    "jp": "猫",
+    "romaji": "neko",
+    "meaning": "kucing",
+    "level": "N5"
+  },
+  {
+    "jp": "鳥",
+    "romaji": "tori",
+    "meaning": "burung",
+    "level": "N5"
+  },
+  {
+    "jp": "春",
+    "romaji": "haru",
+    "meaning": "musim semi",
+    "level": "N5"
+  },
+  {
+    "jp": "夏",
+    "romaji": "natsu",
+    "meaning": "musim panas",
+    "level": "N5"
+  },
+  {
+    "jp": "秋",
+    "romaji": "aki",
+    "meaning": "musim gugur",
+    "level": "N5"
+  },
+  {
+    "jp": "冬",
+    "romaji": "fuyu",
+    "meaning": "musim dingin",
+    "level": "N5"
+  }
+]

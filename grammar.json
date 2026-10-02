@@ -1,0 +1,182 @@
+[
+  {
+    "id": "desu",
+    "pattern": "です",
+    "romaji": "desu",
+    "level": "N5",
+    "meaning": "is/am/are",
+    "formation": "N + です",
+    "notes": "Polite copula.",
+    "examples": [
+      {
+        "ja": "私は学生です。",
+        "en": "I am a student."
+      }
+    ]
+  },
+  {
+    "id": "masu",
+    "pattern": "ます",
+    "romaji": "masu",
+    "level": "N5",
+    "meaning": "polite verb ending",
+    "formation": "Verb stem + ます",
+    "notes": "Basic polite present/future.",
+    "examples": [
+      {
+        "ja": "毎日勉強します。",
+        "en": "I study every day."
+      }
+    ]
+  },
+  {
+    "id": "te-imasu",
+    "pattern": "〜ています",
+    "romaji": "te imasu",
+    "level": "N5",
+    "meaning": "be doing; state",
+    "formation": "Verb-te + います",
+    "notes": "Progressive or continuing state.",
+    "examples": [
+      {
+        "ja": "日本語を勉強しています。",
+        "en": "I am studying Japanese."
+      }
+    ]
+  },
+  {
+    "id": "te-mo-ii",
+    "pattern": "〜てもいい",
+    "romaji": "te mo ii",
+    "level": "N5",
+    "meaning": "may; it is okay to",
+    "formation": "Verb-te + もいい",
+    "notes": "Permission.",
+    "examples": [
+      {
+        "ja": "ここに座ってもいいですか。",
+        "en": "May I sit here?"
+      }
+    ]
+  },
+  {
+    "id": "nakute-wa-ikenai",
+    "pattern": "〜なくてはいけない",
+    "romaji": "nakute wa ikenai",
+    "level": "N4",
+    "meaning": "must",
+    "formation": "Negative te-form + はいけない",
+    "notes": "Obligation.",
+    "examples": [
+      {
+        "ja": "宿題をしなくてはいけません。",
+        "en": "I must do my homework."
+      }
+    ]
+  },
+  {
+    "id": "tara",
+    "pattern": "〜たら",
+    "romaji": "tara",
+    "level": "N4",
+    "meaning": "if; when",
+    "formation": "Past form + ら",
+    "notes": "Conditional or temporal.",
+    "examples": [
+      {
+        "ja": "雨が降ったら、行きません。",
+        "en": "If it rains, I will not go."
+      }
+    ]
+  },
+  {
+    "id": "nagara",
+    "pattern": "〜ながら",
+    "romaji": "nagara",
+    "level": "N3",
+    "meaning": "while doing",
+    "formation": "Verb stem + ながら",
+    "notes": "Two simultaneous actions.",
+    "examples": [
+      {
+        "ja": "音楽を聞きながら勉強します。",
+        "en": "I study while listening to music."
+      }
+    ]
+  },
+  {
+    "id": "you-ni",
+    "pattern": "〜ように",
+    "romaji": "you ni",
+    "level": "N3",
+    "meaning": "so that; in order to",
+    "formation": "Verb dictionary/negative + ように",
+    "notes": "Purpose or desired state.",
+    "examples": [
+      {
+        "ja": "忘れないようにメモします。",
+        "en": "I take notes so I do not forget."
+      }
+    ]
+  },
+  {
+    "id": "wake-da",
+    "pattern": "〜わけだ",
+    "romaji": "wake da",
+    "level": "N2",
+    "meaning": "that means; no wonder",
+    "formation": "Clause + わけだ",
+    "notes": "Draws a logical conclusion.",
+    "examples": [
+      {
+        "ja": "忙しいわけですね。",
+        "en": "So that means you are busy."
+      }
+    ]
+  },
+  {
+    "id": "ni-chigai-nai",
+    "pattern": "〜に違いない",
+    "romaji": "ni chigai nai",
+    "level": "N2",
+    "meaning": "must be; no doubt",
+    "formation": "N + に違いない",
+    "notes": "Strong inference.",
+    "examples": [
+      {
+        "ja": "彼は学生に違いない。",
+        "en": "He must be a student."
+      }
+    ]
+  },
+  {
+    "id": "ni-suginai",
+    "pattern": "〜にすぎない",
+    "romaji": "ni suginai",
+    "level": "N1",
+    "meaning": "merely; no more than",
+    "formation": "N + にすぎない",
+    "notes": "Limits a statement.",
+    "examples": [
+      {
+        "ja": "これは一例にすぎない。",
+        "en": "This is merely one example."
+      }
+    ]
+  },
+  {
+    "id": "bakari-ka",
+    "pattern": "〜ばかりか",
+    "romaji": "bakari ka",
+    "level": "N1",
+    "meaning": "not only; but also",
+    "formation": "N + ばかりか",
+    "notes": "Adds a stronger parallel point.",
+    "examples": [
+      {
+        "ja": "彼は英語ばかりか日本語も話せる。",
+        "en": "He can speak not only English but Japanese too."
+      }
+    ]
+  }
+]
