@@ -14,15 +14,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
-          channel: stable
+          flutter-version: "3.47.0"
           cache: true
+
+      - name: Generate full learning content
+        run: python tool/build_content.py
+
+      - name: Create Android platform
+        run: flutter create . --platforms=android --project-name=nihon_go_master_ultimate
+
+      - name: Add microphone permission
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path("android/app/src/main/AndroidManifest.xml")
+          s = p.read_text()
+
+          permission = '<uses-permission android:name="android.permission.RECORD_AUDIO"/>'
+
+          if permission not in s:
+              s = s.replace(
+                  '<manifest xmlns:android="http://schemas.android.com/apk/res/android">',
+                  '<manifest xmlns:android="http://schemas.android.com/apk/res/android">\n    ' + permission
+              )
+
+          p.write_text(s)
+          PY
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Analyze Flutter project
+        run: flutter analyze
 
       - name: Build APK
         run: flutter build apk --release
@@ -30,5 +62,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-release
+          name: nihongo-master-ultimate-release
           path: build/app/outputs/flutter-apk/app-release.apk
