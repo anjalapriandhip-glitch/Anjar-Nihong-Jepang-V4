@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -10,20 +11,35 @@ import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   final store = await AppStore.load();
   final content = await ContentPack.load();
-  runApp(NihonGoMaster(store: store, content: content));
+
+  runApp(
+    NihonGoMaster(
+      store: store,
+      content: content,
+    ),
+  );
 }
 
 class AppStore extends ChangeNotifier {
   final SharedPreferences prefs;
-  int xp = 0, streak = 1, lessons = 0, correct = 0, questions = 0;
+
+  int xp = 0;
+  int streak = 1;
+  int lessons = 0;
+  int correct = 0;
+  int questions = 0;
+
   bool dark = false;
+
   final Set<String> learned = {};
   final Set<String> favorites = {};
   final List<Map<String, String>> chats = [];
   final Map<String, SrsCard> srs = {};
   final Map<String, int> mistakes = {};
+
   String apiKey = '';
   String endpoint = 'https://api.openai.com/v1/chat/completions';
   String model = 'gpt-4o-mini';
@@ -35,11 +51,18 @@ class AppStore extends ChangeNotifier {
     correct = prefs.getInt('correct') ?? 0;
     questions = prefs.getInt('questions') ?? 0;
     dark = prefs.getBool('dark') ?? false;
+
     apiKey = prefs.getString('apiKey') ?? '';
     endpoint = prefs.getString('endpoint') ?? endpoint;
     model = prefs.getString('model') ?? model;
-    learned.addAll(prefs.getStringList('learned') ?? []);
-    favorites.addAll(prefs.getStringList('favorites') ?? []);
+
+    learned.addAll(
+      prefs.getStringList('learned') ?? [],
+    );
+
+    favorites.addAll(
+      prefs.getStringList('favorites') ?? [],
+    );
 
     final rawChats = prefs.getString('chats') ?? '[]';
     chats.addAll(
@@ -49,20 +72,25 @@ class AppStore extends ChangeNotifier {
 
     final rawSrs = prefs.getString('srs') ?? '{}';
     final s = jsonDecode(rawSrs) as Map;
+
     for (final e in s.entries) {
-      srs[e.key.toString()] =
-          SrsCard.fromJson(Map<String, dynamic>.from(e.value));
+      srs[e.key.toString()] = SrsCard.fromJson(
+        Map<String, dynamic>.from(e.value),
+      );
     }
 
     final rawMistakes = prefs.getString('mistakes') ?? '{}';
     final m = jsonDecode(rawMistakes) as Map;
+
     for (final e in m.entries) {
       mistakes[e.key.toString()] = (e.value as num).toInt();
     }
   }
 
   static Future<AppStore> load() async {
-    return AppStore._(await SharedPreferences.getInstance());
+    return AppStore._(
+      await SharedPreferences.getInstance(),
+    );
   }
 
   Future<void> save() async {
@@ -72,19 +100,40 @@ class AppStore extends ChangeNotifier {
     await prefs.setInt('correct', correct);
     await prefs.setInt('questions', questions);
     await prefs.setBool('dark', dark);
+
     await prefs.setString('apiKey', apiKey);
     await prefs.setString('endpoint', endpoint);
     await prefs.setString('model', model);
-    await prefs.setStringList('learned', learned.toList());
-    await prefs.setStringList('favorites', favorites.toList());
-    await prefs.setString('chats', jsonEncode(chats));
+
+    await prefs.setStringList(
+      'learned',
+      learned.toList(),
+    );
+
+    await prefs.setStringList(
+      'favorites',
+      favorites.toList(),
+    );
+
+    await prefs.setString(
+      'chats',
+      jsonEncode(chats),
+    );
+
     await prefs.setString(
       'srs',
       jsonEncode(
-        srs.map((k, v) => MapEntry(k, v.toJson())),
+        srs.map(
+          (k, v) => MapEntry(k, v.toJson()),
+        ),
       ),
     );
-    await prefs.setString('mistakes', jsonEncode(mistakes));
+
+    await prefs.setString(
+      'mistakes',
+      jsonEncode(mistakes),
+    );
+
     notifyListeners();
   }
 
@@ -103,6 +152,7 @@ class AppStore extends ChangeNotifier {
     }
 
     final card = srs[id] ?? SrsCard.newCard(id);
+
     card.review(ok);
     srs[id] = card;
 
@@ -113,7 +163,9 @@ class AppStore extends ChangeNotifier {
 
   List<String> weakest(int n) {
     final list = mistakes.entries.toList()
-      ..sort((a, b) => b.value.compareTo(a.value));
+      ..sort(
+        (a, b) => b.value.compareTo(a.value),
+      );
 
     return list.take(n).map((e) => e.key).toList();
   }
@@ -121,6 +173,7 @@ class AppStore extends ChangeNotifier {
 
 class SrsCard {
   final String id;
+
   int repetitions;
   double ease;
   int interval;
@@ -177,7 +230,11 @@ class SrsCard {
       interval = 0;
       ease = max(1.3, ease - .2);
       lapses++;
-      due = DateTime.now().add(const Duration(minutes: 10));
+
+      due = DateTime.now().add(
+        const Duration(minutes: 10),
+      );
+
       return;
     }
 
@@ -188,11 +245,20 @@ class SrsCard {
     } else if (repetitions == 2) {
       interval = 3;
     } else {
-      interval = max(1, (interval * ease).round());
+      interval = max(
+        1,
+        (interval * ease).round(),
+      );
     }
 
-    ease = min(3.0, ease + .05);
-    due = DateTime.now().add(Duration(days: interval));
+    ease = min(
+      3.0,
+      ease + .05,
+    );
+
+    due = DateTime.now().add(
+      Duration(days: interval),
+    );
   }
 }
 
@@ -209,33 +275,45 @@ class ContentPack {
 
   static Future<ContentPack> load() async {
     final v = jsonDecode(
-      await rootBundle.loadString('assets/data/vocab.json'),
+      await rootBundle.loadString(
+        'assets/data/vocab.json',
+      ),
     ) as List;
 
     final k = jsonDecode(
-      await rootBundle.loadString('assets/data/kanji.json'),
+      await rootBundle.loadString(
+        'assets/data/kanji.json',
+      ),
     ) as List;
 
     final g = jsonDecode(
-      await rootBundle.loadString('assets/data/grammar.json'),
+      await rootBundle.loadString(
+        'assets/data/grammar.json',
+      ),
     ) as List;
 
     return ContentPack(
-      v.map(
-        (e) => Vocab.fromJson(
-          Map<String, dynamic>.from(e),
-        ),
-      ).toList(),
-      k.map(
-        (e) => Kanji.fromJson(
-          Map<String, dynamic>.from(e),
-        ),
-      ).toList(),
-      g.map(
-        (e) => GrammarPoint.fromJson(
-          Map<String, dynamic>.from(e),
-        ),
-      ).toList(),
+      v
+          .map(
+            (e) => Vocab.fromJson(
+              Map<String, dynamic>.from(e),
+            ),
+          )
+          .toList(),
+      k
+          .map(
+            (e) => Kanji.fromJson(
+              Map<String, dynamic>.from(e),
+            ),
+          )
+          .toList(),
+      g
+          .map(
+            (e) => GrammarPoint.fromJson(
+              Map<String, dynamic>.from(e),
+            ),
+          )
+          .toList(),
     );
   }
 }
@@ -247,6 +325,7 @@ class Vocab {
   final String meaning;
   final String level;
   final String reading;
+
   final List<ExampleSentence> examples;
 
   Vocab({
@@ -291,7 +370,9 @@ class ExampleSentence {
     this.furigana,
   );
 
-  factory ExampleSentence.fromJson(Map<String, dynamic> j) {
+  factory ExampleSentence.fromJson(
+    Map<String, dynamic> j,
+  ) {
     return ExampleSentence(
       '${j['ja'] ?? ''}',
       '${j['en'] ?? ''}',
@@ -307,7 +388,9 @@ class Kanji {
   final String meaning;
   final String level;
   final String radical;
+
   final int strokes;
+
   final List<String> onyomi;
   final List<String> kunyomi;
   final List<String> words;
@@ -325,7 +408,9 @@ class Kanji {
     this.words = const [],
   });
 
-  factory Kanji.fromJson(Map<String, dynamic> j) {
+  factory Kanji.fromJson(
+    Map<String, dynamic> j,
+  ) {
     return Kanji(
       id: '${j['id'] ?? j['character'] ?? j['char']}',
       char: '${j['character'] ?? j['char']}',
@@ -339,12 +424,15 @@ class Kanji {
       level: '${j['level'] ?? 'JP'}',
       radical: '${j['radical'] ?? ''}',
       strokes: (j['strokes'] ?? j['stroke_count'] ?? 0).toInt(),
-      onyomi:
-          ((j['onyomi'] as List?) ?? []).map((e) => '$e').toList(),
-      kunyomi:
-          ((j['kunyomi'] as List?) ?? []).map((e) => '$e').toList(),
-      words:
-          ((j['words'] as List?) ?? []).map((e) => '$e').toList(),
+      onyomi: ((j['onyomi'] as List?) ?? [])
+          .map((e) => '$e')
+          .toList(),
+      kunyomi: ((j['kunyomi'] as List?) ?? [])
+          .map((e) => '$e')
+          .toList(),
+      words: ((j['words'] as List?) ?? [])
+          .map((e) => '$e')
+          .toList(),
     );
   }
 }
@@ -357,6 +445,7 @@ class GrammarPoint {
   final String meaning;
   final String formation;
   final String notes;
+
   final List<ExampleSentence> examples;
 
   GrammarPoint({
@@ -370,7 +459,9 @@ class GrammarPoint {
     required this.examples,
   });
 
-  factory GrammarPoint.fromJson(Map<String, dynamic> j) {
+  factory GrammarPoint.fromJson(
+    Map<String, dynamic> j,
+  ) {
     return GrammarPoint(
       id: '${j['id']}',
       pattern: '${j['pattern']}',
@@ -655,8 +746,9 @@ class Dashboard extends StatelessWidget {
                 () => Navigator.push(
                   c,
                   MaterialPageRoute(
-                    builder: (_) =>
-                        GrammarPage(content: content),
+                    builder: (_) => GrammarPage(
+                      content: content,
+                    ),
                   ),
                 ),
               ),
@@ -679,8 +771,9 @@ class Dashboard extends StatelessWidget {
           const SizedBox(height: 12),
           Card(
             child: ListTile(
-              leading:
-                  const Icon(Icons.headphones),
+              leading: const Icon(
+                Icons.headphones,
+              ),
               title: const Text(
                 'Listening & pronunciation',
               ),
@@ -720,8 +813,9 @@ class Dashboard extends StatelessWidget {
           ),
           Card(
             child: ListTile(
-              leading:
-                  const Icon(Icons.auto_awesome),
+              leading: const Icon(
+                Icons.auto_awesome,
+              ),
               title: const Text(
                 'AI Sensei personal',
               ),
@@ -741,17 +835,13 @@ class Dashboard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          for (final level in [
-            'N5',
-            'N4',
-            'N3',
-            'N2',
-            'N1'
-          ])
+          for (final level
+              in ['N5', 'N4', 'N3', 'N2', 'N1'])
             Card(
               child: ListTile(
-                leading:
-                    CircleAvatar(child: Text(level)),
+                leading: CircleAvatar(
+                  child: Text(level),
+                ),
                 title: Text(level),
                 subtitle: Text(
                   '${content.vocab.where((v) => v.level == level).length} kata • '
@@ -803,7 +893,10 @@ class HubCard extends StatelessWidget {
             crossAxisAlignment:
                 CrossAxisAlignment.start,
             children: [
-              Icon(icon, size: 32),
+              Icon(
+                icon,
+                size: 32,
+              ),
               const Spacer(),
               Text(
                 a,
@@ -835,8 +928,7 @@ class LearnHub extends StatefulWidget {
   });
 
   @override
-  State<LearnHub> createState() =>
-      _LearnHubState();
+  State<LearnHub> createState() => _LearnHubState();
 }
 
 class _LearnHubState extends State<LearnHub> {
@@ -849,7 +941,7 @@ class _LearnHubState extends State<LearnHub> {
       'Kata',
       'Kanji',
       'Grammar',
-      'Speaking'
+      'Speaking',
     ];
 
     final vocab = widget.content.vocab
@@ -915,39 +1007,33 @@ class _LearnHubState extends State<LearnHub> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () =>
-                      Navigator.push(
+                  onPressed: () => Navigator.push(
                     c,
                     MaterialPageRoute(
-                      builder: (_) =>
-                          KanjiPracticePage(
+                      builder: (_) => KanjiPracticePage(
                         store: widget.store,
                         content: widget.content,
                       ),
                     ),
                   ),
-                  icon:
-                      const Icon(Icons.gesture),
+                  icon: const Icon(
+                    Icons.gesture,
+                  ),
                 ),
               ],
             ),
           ),
           Padding(
             padding:
-                const EdgeInsets.symmetric(
-              horizontal: 18,
-            ),
+                const EdgeInsets.symmetric(horizontal: 18),
             child: TextField(
               onChanged: (v) =>
                   setState(() => q = v),
-              decoration:
-                  const InputDecoration(
-                prefixIcon:
-                    Icon(Icons.search),
+              decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.search),
                 hintText:
                     'Cari kata, kanji, grammar...',
-                border:
-                    OutlineInputBorder(),
+                border: OutlineInputBorder(),
               ),
             ),
           ),
@@ -957,14 +1043,11 @@ class _LearnHubState extends State<LearnHub> {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding:
-                  const EdgeInsets.symmetric(
-                horizontal: 18,
-              ),
+                  const EdgeInsets.symmetric(horizontal: 18),
               itemCount: tabs.length,
               separatorBuilder: (_, __) =>
                   const SizedBox(width: 8),
-              itemBuilder: (_, i) =>
-                  ChoiceChip(
+              itemBuilder: (_, i) => ChoiceChip(
                 label: Text(tabs[i]),
                 selected: mode == i,
                 onSelected: (_) =>
@@ -976,8 +1059,7 @@ class _LearnHubState extends State<LearnHub> {
             child: mode == 0
                 ? ListView.builder(
                     itemCount: vocab.length,
-                    itemBuilder: (_, i) =>
-                        VocabTile(
+                    itemBuilder: (_, i) => VocabTile(
                       v: vocab[i],
                       store: widget.store,
                       content: widget.content,
@@ -995,8 +1077,7 @@ class _LearnHubState extends State<LearnHub> {
                       )
                     : mode == 2
                         ? ListView.builder(
-                            itemCount:
-                                grammar.length,
+                            itemCount: grammar.length,
                             itemBuilder: (_, i) =>
                                 GrammarTile(
                               g: grammar[i],
@@ -1004,8 +1085,7 @@ class _LearnHubState extends State<LearnHub> {
                           )
                         : SpeakingPage(
                             store: widget.store,
-                            content:
-                                widget.content,
+                            content: widget.content,
                             embedded: true,
                           ),
           ),
@@ -1029,11 +1109,11 @@ class VocabTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext c) {
-    final fav =
-        store.favorites.contains(v.id);
+    final fav = store.favorites.contains(v.id);
 
     return Card(
-      margin: const EdgeInsets.symmetric(
+      margin:
+          const EdgeInsets.symmetric(
         horizontal: 18,
         vertical: 5,
       ),
@@ -1067,8 +1147,9 @@ class VocabTile extends StatelessWidget {
               },
             ),
             IconButton(
-              icon:
-                  const Icon(Icons.volume_up),
+              icon: const Icon(
+                Icons.volume_up,
+              ),
               onPressed: () => speak(v.jp),
             ),
           ],
@@ -1103,7 +1184,8 @@ class KanjiTile extends StatelessWidget {
   @override
   Widget build(BuildContext c) {
     return Card(
-      margin: const EdgeInsets.symmetric(
+      margin:
+          const EdgeInsets.symmetric(
         horizontal: 18,
         vertical: 5,
       ),
@@ -1120,13 +1202,13 @@ class KanjiTile extends StatelessWidget {
           '${k.reading} • ${k.strokes} strokes • ${k.level}',
         ),
         trailing: IconButton(
-          icon: const Icon(Icons.brush),
-          onPressed: () =>
-              Navigator.push(
+          icon: const Icon(
+            Icons.brush,
+          ),
+          onPressed: () => Navigator.push(
             c,
             MaterialPageRoute(
-              builder: (_) =>
-                  KanjiPracticePage(
+              builder: (_) => KanjiPracticePage(
                 store: store,
                 content: content,
                 initial: k,
@@ -1158,8 +1240,7 @@ class VocabDetail extends StatelessWidget {
         title: Text(v.jp),
       ),
       body: ListView(
-        padding:
-            const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         children: [
           Text(
             v.jp,
@@ -1185,10 +1266,12 @@ class VocabDetail extends StatelessWidget {
           const SizedBox(height: 18),
           FilledButton.icon(
             onPressed: () => speak(v.jp),
-            icon:
-                const Icon(Icons.volume_up),
-            label:
-                const Text('Dengarkan'),
+            icon: const Icon(
+              Icons.volume_up,
+            ),
+            label: const Text(
+              'Dengarkan',
+            ),
           ),
           if (v.examples.isNotEmpty) ...[
             const SizedBox(height: 18),
@@ -1202,16 +1285,14 @@ class VocabDetail extends StatelessWidget {
             ...v.examples.map(
               (e) => Card(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.all(14),
+                  padding: const EdgeInsets.all(14),
                   child: Column(
                     crossAxisAlignment:
                         CrossAxisAlignment.start,
                     children: [
                       Text(
                         e.ja,
-                        style:
-                            const TextStyle(
+                        style: const TextStyle(
                           fontSize: 19,
                           fontWeight:
                               FontWeight.w700,
@@ -1222,8 +1303,7 @@ class VocabDetail extends StatelessWidget {
                       if (e.furigana.isNotEmpty)
                         Text(
                           e.furigana,
-                          style:
-                              const TextStyle(
+                          style: const TextStyle(
                             fontSize: 12,
                           ),
                         ),
@@ -1241,6 +1321,7 @@ class VocabDetail extends StatelessWidget {
 
 Future<void> speak(String text) async {
   final tts = FlutterTts();
+
   await tts.setLanguage('ja-JP');
   await tts.setSpeechRate(.42);
   await tts.speak(text);
@@ -1257,7 +1338,8 @@ class GrammarTile extends StatelessWidget {
   @override
   Widget build(BuildContext c) {
     return Card(
-      margin: const EdgeInsets.symmetric(
+      margin:
+          const EdgeInsets.symmetric(
         horizontal: 18,
         vertical: 5,
       ),
@@ -1274,8 +1356,9 @@ class GrammarTile extends StatelessWidget {
         onTap: () => Navigator.push(
           c,
           MaterialPageRoute(
-            builder: (_) =>
-                GrammarDetail(g: g),
+            builder: (_) => GrammarDetail(
+              g: g,
+            ),
           ),
         ),
       ),
@@ -1295,8 +1378,9 @@ class GrammarPage extends StatelessWidget {
   Widget build(BuildContext c) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('Grammar N5–N1'),
+        title: const Text(
+          'Grammar N5–N1',
+        ),
       ),
       body: ListView(
         padding:
@@ -1309,7 +1393,7 @@ class GrammarPage extends StatelessWidget {
             'N4',
             'N3',
             'N2',
-            'N1'
+            'N1',
           ]) ...[
             Padding(
               padding:
@@ -1357,8 +1441,7 @@ class GrammarDetail extends StatelessWidget {
         title: Text(g.pattern),
       ),
       body: ListView(
-        padding:
-            const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         children: [
           Text(
             g.pattern,
@@ -1411,8 +1494,7 @@ class GrammarDetail extends StatelessWidget {
                   children: [
                     Text(
                       e.ja,
-                      style:
-                          const TextStyle(
+                      style: const TextStyle(
                         fontSize: 19,
                         fontWeight:
                             FontWeight.bold,
@@ -1468,8 +1550,7 @@ class _ReviewPageState
     final due = widget.content.vocab
         .where(
           (v) =>
-              widget.store.srs[v.id]
-                  ?.isDue ??
+              widget.store.srs[v.id]?.isDue ??
               true,
         )
         .toList()
@@ -1478,11 +1559,10 @@ class _ReviewPageState
     deck = due.take(40).toList();
 
     if (deck.isEmpty) {
-      deck =
-          (List.of(widget.content.vocab)
-                ..shuffle())
-              .take(20)
-              .toList();
+      deck = (List.of(widget.content.vocab)
+            ..shuffle())
+          .take(20)
+          .toList();
     }
   }
 
@@ -1490,7 +1570,9 @@ class _ReviewPageState
   Widget build(BuildContext c) {
     if (deck.isEmpty) {
       return const Center(
-        child: Text('Belum ada kartu.'),
+        child: Text(
+          'Belum ada kartu.',
+        ),
       );
     }
 
@@ -1498,8 +1580,7 @@ class _ReviewPageState
 
     return SafeArea(
       child: Padding(
-        padding:
-            const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         child: Column(
           crossAxisAlignment:
               CrossAxisAlignment.start,
@@ -1524,16 +1605,13 @@ class _ReviewPageState
                     .colorScheme
                     .primaryContainer,
                 child: InkWell(
-                  onTap: () =>
-                      setState(
+                  onTap: () => setState(
                     () => revealed = true,
                   ),
                   child: Center(
                     child: Padding(
                       padding:
-                          const EdgeInsets.all(
-                        24,
-                      ),
+                          const EdgeInsets.all(24),
                       child: Column(
                         mainAxisAlignment:
                             MainAxisAlignment
@@ -1545,8 +1623,7 @@ class _ReviewPageState
                                 const TextStyle(
                               fontSize: 56,
                               fontWeight:
-                                  FontWeight
-                                      .w900,
+                                  FontWeight.w900,
                             ),
                           ),
                           const SizedBox(
@@ -1566,14 +1643,12 @@ class _ReviewPageState
                             Text(
                               v.meaning,
                               textAlign:
-                                  TextAlign
-                                      .center,
+                                  TextAlign.center,
                               style:
                                   const TextStyle(
                                 fontSize: 20,
                                 fontWeight:
-                                    FontWeight
-                                        .bold,
+                                    FontWeight.bold,
                               ),
                             ),
                             const SizedBox(
@@ -1586,8 +1661,7 @@ class _ReviewPageState
                                     .first
                                     .ja,
                                 textAlign:
-                                    TextAlign
-                                        .center,
+                                    TextAlign.center,
                               ),
                           ] else
                             const Padding(
@@ -1610,12 +1684,12 @@ class _ReviewPageState
               Row(
                 children: [
                   Expanded(
-                    child:
-                        OutlinedButton(
+                    child: OutlinedButton(
                       onPressed: () =>
                           _rate(false),
-                      child:
-                          const Text('Lupa'),
+                      child: const Text(
+                        'Lupa',
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -1623,8 +1697,9 @@ class _ReviewPageState
                     child: FilledButton(
                       onPressed: () =>
                           _rate(true),
-                      child:
-                          const Text('Ingat'),
+                      child: const Text(
+                        'Ingat',
+                      ),
                     ),
                   ),
                 ],
@@ -1673,6 +1748,7 @@ class KanjiPracticePage
 class _KanjiPracticePageState
     extends State<KanjiPracticePage> {
   late Kanji k;
+
   final List<List<Offset>> strokes = [];
   List<Offset> current = [];
 
@@ -1682,19 +1758,17 @@ class _KanjiPracticePageState
 
     k = widget.initial ??
         (List.of(widget.content.kanji)
-              ..shuffle())
+          ..shuffle())
             .first;
   }
 
   void next() {
-    final i =
-        widget.content.kanji.indexOf(k);
+    final i = widget.content.kanji.indexOf(k);
 
     setState(() {
       k = widget.content.kanji[
-        (i + 1) %
-            widget.content.kanji.length
-      ];
+          (i + 1) %
+              widget.content.kanji.length];
       strokes.clear();
     });
   }
@@ -1716,8 +1790,7 @@ class _KanjiPracticePageState
         ],
       ),
       body: ListView(
-        padding:
-            const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         children: [
           Row(
             children: [
@@ -1725,7 +1798,8 @@ class _KanjiPracticePageState
                 k.char,
                 style: const TextStyle(
                   fontSize: 64,
-                  fontWeight: FontWeight.w900,
+                  fontWeight:
+                      FontWeight.w900,
                 ),
               ),
               const SizedBox(width: 18),
@@ -1778,30 +1852,23 @@ class _KanjiPracticePageState
                     BorderRadius.circular(24),
               ),
               child: GestureDetector(
-                onPanStart: (d) =>
-                    setState(
+                onPanStart: (d) => setState(
                   () => current = [
                     d.localPosition
                   ],
                 ),
-                onPanUpdate: (d) =>
-                    setState(
-                  () => current.add(
-                    d.localPosition,
-                  ),
+                onPanUpdate: (d) => setState(
+                  () => current
+                      .add(d.localPosition),
                 ),
-                onPanEnd: (_) =>
-                    setState(
-                  () {
-                    if (current
-                        .isNotEmpty) {
-                      strokes.add(
-                        List.of(current),
-                      );
-                    }
-                    current = [];
-                  },
-                ),
+                onPanEnd: (_) => setState(() {
+                  if (current.isNotEmpty) {
+                    strokes.add(
+                      List.of(current),
+                    );
+                  }
+                  current = [];
+                }),
                 child: CustomPaint(
                   painter:
                       HandwritingPainter(
@@ -1819,25 +1886,23 @@ class _KanjiPracticePageState
             children: [
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () =>
-                      setState(
-                    strokes.clear,
+                  onPressed: () => setState(
+                    () => strokes.clear(),
                   ),
-                  child:
-                      const Text('Hapus'),
+                  child: const Text(
+                    'Hapus',
+                  ),
                 ),
               ),
               const SizedBox(width: 8),
               Expanded(
                 child: FilledButton(
                   onPressed: () async {
-                    await widget.store
-                        .award(5);
+                    await widget.store.award(5);
 
                     if (mounted) {
-                      ScaffoldMessenger.of(
-                        c,
-                      ).showSnackBar(
+                      ScaffoldMessenger.of(c)
+                          .showSnackBar(
                         const SnackBar(
                           content:
                               Text('+5 XP'),
@@ -1845,8 +1910,9 @@ class _KanjiPracticePageState
                       );
                     }
                   },
-                  child:
-                      const Text('Selesai'),
+                  child: const Text(
+                    'Selesai',
+                  ),
                 ),
               ),
             ],
@@ -1950,11 +2016,13 @@ class HandwritingPainter
 
     for (final st in [
       ...strokes,
-      if (current.isNotEmpty) current
+      if (current.isNotEmpty) current,
     ]) {
-      for (int i = 1;
-          i < st.length;
-          i++) {
+      for (
+        int i = 1;
+        i < st.length;
+        i++
+      ) {
         canvas.drawLine(
           st[i - 1],
           st[i],
@@ -1984,10 +2052,10 @@ class HandwritingPainter
 
   @override
   bool shouldRepaint(
-    covariant HandwritingPainter
-        oldDelegate,
-  ) =>
-      true;
+    covariant HandwritingPainter oldDelegate,
+  ) {
+    return true;
+  }
 }
 
 class SpeakingPage extends StatefulWidget {
@@ -2011,18 +2079,23 @@ class _SpeakingPageState
     extends State<SpeakingPage> {
   final stt.SpeechToText speech =
       stt.SpeechToText();
+
   final FlutterTts tts = FlutterTts();
+
   final Random rnd = Random();
 
   late Vocab target;
+
   bool ready = false;
   bool listening = false;
+
   String heard = '';
   double score = 0;
 
   @override
   void initState() {
     super.initState();
+
     _next();
     _initSpeech();
   }
@@ -2051,7 +2124,9 @@ class _SpeakingPageState
   Future<void> _listen() async {
     if (!ready) return;
 
-    setState(() => listening = true);
+    setState(
+      () => listening = true,
+    );
 
     await speech.listen(
       localeId: 'ja_JP',
@@ -2067,7 +2142,8 @@ class _SpeakingPageState
     setState(() {
       listening = false;
       score =
-          similarity(heard, target.jp) * 100;
+          similarity(heard, target.jp) *
+              100;
     });
 
     await widget.store.answer(
@@ -2080,8 +2156,7 @@ class _SpeakingPageState
   Widget build(BuildContext c) {
     return SafeArea(
       child: Padding(
-        padding:
-            const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         child: Column(
           children: [
             Row(
@@ -2099,7 +2174,8 @@ class _SpeakingPageState
                   ),
                 ),
                 IconButton(
-                  onPressed: _next,
+                  onPressed: () =>
+                      setState(_next),
                   icon: const Icon(
                     Icons.refresh,
                   ),
@@ -2131,9 +2207,7 @@ class _SpeakingPageState
                       textAlign:
                           TextAlign.center,
                     ),
-                    const SizedBox(
-                      height: 14,
-                    ),
+                    const SizedBox(height: 14),
                     FilledButton.icon(
                       onPressed: () async {
                         await tts.setLanguage(
@@ -2199,9 +2273,12 @@ class _SpeakingPageState
                     ? 'Berhenti & nilai'
                     : 'Mulai speaking',
               ),
-              style: FilledButton.styleFrom(
+              style:
+                  FilledButton.styleFrom(
                 minimumSize:
-                    const Size.fromHeight(54),
+                    const Size.fromHeight(
+                  54,
+                ),
               ),
             ),
             if (widget.embedded)
@@ -2230,20 +2307,25 @@ double similarity(
     '',
   );
 
-  final prev = List<int>.generate(
+  final prev =
+      List<int>.generate(
     bb.length + 1,
     (i) => i,
   );
 
-  for (int i = 1;
-      i <= aa.length;
-      i++) {
+  for (
+    int i = 1;
+    i <= aa.length;
+    i++
+  ) {
     int left = i;
     int diag = i - 1;
 
-    for (int j = 1;
-        j <= bb.length;
-        j++) {
+    for (
+      int j = 1;
+      j <= bb.length;
+      j++
+    ) {
       final up = prev[j];
 
       final cost =
@@ -2275,8 +2357,7 @@ double similarity(
           );
 }
 
-class LevelPage
-    extends StatelessWidget {
+class LevelPage extends StatelessWidget {
   final String level;
   final ContentPack content;
   final AppStore store;
@@ -2312,7 +2393,9 @@ class LevelPage
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('JLPT $level'),
+        title: Text(
+          'JLPT $level',
+        ),
       ),
       body: ListView(
         padding:
@@ -2325,17 +2408,18 @@ class LevelPage
                 .titleLarge,
           ),
           const SizedBox(height: 12),
-          ...v.take(40).map(
-            (x) => VocabTile(
-              v: x,
-              store: store,
-              content: content,
-            ),
-          ),
+          ...v
+              .take(40)
+              .map(
+                (x) => VocabTile(
+                  v: x,
+                  store: store,
+                  content: content,
+                ),
+              ),
           const SizedBox(height: 12),
           FilledButton(
-            onPressed: () =>
-                Navigator.push(
+            onPressed: () => Navigator.push(
               c,
               MaterialPageRoute(
                 builder: (_) =>
@@ -2373,6 +2457,7 @@ class _AiTutorState
     extends State<AiTutor> {
   final input =
       TextEditingController();
+
   final scroll =
       ScrollController();
 
@@ -2392,14 +2477,13 @@ class _AiTutorState
     final text =
         (preset ?? input.text).trim();
 
-    if (text.isEmpty || loading) {
-      return;
-    }
+    if (text.isEmpty || loading) return;
 
     input.clear();
 
     setState(() {
       loading = true;
+
       widget.store.chats.add({
         'role': 'user',
         'text': text,
@@ -2416,13 +2500,16 @@ class _AiTutorState
     if (widget.store.apiKey.isEmpty) {
       reply =
           'Mode demo. Kesalahan yang paling sering tersimpan: '
-          '${weak.isEmpty ? 'belum ada data' : weak}.\n\n'
+          '${weak.isEmpty ? 'belum ada data' : weak}.'
+          '\n\n'
           'Untuk AI nyata, isi API key pada Pengaturan AI. '
           'Saya sudah menyiapkan konteks tutor agar AI memprioritaskan item yang sering salah.';
     } else {
       try {
         final r = await http.post(
-          Uri.parse(widget.store.endpoint),
+          Uri.parse(
+            widget.store.endpoint,
+          ),
           headers: {
             'Content-Type':
                 'application/json',
@@ -2430,7 +2517,8 @@ class _AiTutorState
                 'Bearer ${widget.store.apiKey}',
           },
           body: jsonEncode({
-            'model': widget.store.model,
+            'model':
+                widget.store.model,
             'messages': [
               {
                 'role': 'system',
@@ -2458,10 +2546,11 @@ class _AiTutorState
 
         if (r.statusCode >= 200 &&
             r.statusCode < 300) {
-          final d = jsonDecode(r.body);
+          final d =
+              jsonDecode(r.body);
 
           reply = d['choices'][0]
-                  ['message']['content']
+              ['message']['content']
               .toString();
         } else {
           reply =
@@ -2494,7 +2583,9 @@ class _AiTutorState
       scroll.animateTo(
         scroll.position.maxScrollExtent,
         duration:
-            const Duration(milliseconds: 250),
+            const Duration(
+          milliseconds: 250,
+        ),
         curve: Curves.easeOut,
       );
     }
@@ -2518,7 +2609,8 @@ class _AiTutorState
                 Expanded(
                   child: Column(
                     crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                        CrossAxisAlignment
+                            .start,
                     children: [
                       Text(
                         'AI Sensei',
@@ -2556,11 +2648,15 @@ class _AiTutorState
                 horizontal: 18,
               ),
               itemCount: presets.length,
-              separatorBuilder: (_, __) =>
-                  const SizedBox(width: 8),
+              separatorBuilder:
+                  (_, __) =>
+                      const SizedBox(
+                width: 8,
+              ),
               itemBuilder: (_, i) =>
                   ActionChip(
-                label: Text(presets[i]),
+                label:
+                    Text(presets[i]),
                 onPressed: () =>
                     send(presets[i]),
               ),
@@ -2582,7 +2678,9 @@ class _AiTutorState
                 : ListView.builder(
                     controller: scroll,
                     padding:
-                        const EdgeInsets.all(14),
+                        const EdgeInsets.all(
+                      14,
+                    ),
                     itemCount:
                         widget.store.chats.length,
                     itemBuilder: (_, i) {
@@ -2697,9 +2795,11 @@ class _AiTutorState
     await showDialog(
       context: c,
       builder: (_) => AlertDialog(
-        title:
-            const Text('Pengaturan AI'),
-        content: SingleChildScrollView(
+        title: const Text(
+          'Pengaturan AI',
+        ),
+        content:
+            SingleChildScrollView(
           child: Column(
             children: [
               TextField(
@@ -2739,8 +2839,9 @@ class _AiTutorState
           TextButton(
             onPressed: () =>
                 Navigator.pop(c),
-            child:
-                const Text('Batal'),
+            child: const Text(
+              'Batal',
+            ),
           ),
           FilledButton(
             onPressed: () async {
@@ -2759,8 +2860,9 @@ class _AiTutorState
                 Navigator.pop(c);
               }
             },
-            child:
-                const Text('Simpan'),
+            child: const Text(
+              'Simpan',
+            ),
           ),
         ],
       ),
@@ -2902,9 +3004,12 @@ class Profile extends StatelessWidget {
               padding:
                   EdgeInsets.all(16),
               child: Text(
-                'Sumber data: OpenJLPT (CC BY-SA 4.0), yang menggabungkan JMdict, KANJIDIC2, daftar level JLPT komunitas, dan Tatoeba.\n'
-                'Stroke order: KanjiVG (CC BY-SA 3.0).\n'
-                'Level JLPT adalah perkiraan komunitas, bukan daftar resmi JLPT.',
+                'Sumber data: OpenJLPT (CC BY-SA 4.0), '
+                'yang menggabungkan JMdict, KANJIDIC2, '
+                'daftar level JLPT komunitas, dan Tatoeba.\n'
+                'Stroke order: KanjiVG (CC BY-SA 3.0). '
+                'Level JLPT adalah perkiraan komunitas, '
+                'bukan daftar resmi JLPT.',
               ),
             ),
           ),
@@ -2958,11 +3063,18 @@ extension TakeLast<T>
 
     return l.length <= n
         ? l
-        : l.sublist(l.length - n);
+        : l.sublist(
+            l.length - n,
+          );
   }
 }
 
 extension StringEmpty on String {
-  String ifEmpty(String fallback) =>
-      isEmpty ? fallback : this;
+  String ifEmpty(
+    String fallback,
+  ) {
+    return isEmpty
+        ? fallback
+        : this;
+  }
 }
