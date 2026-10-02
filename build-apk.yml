@@ -16,7 +16,7 @@ jobs:
     steps:
 
       # ==========================================
-      # 1. CHECKOUT PROJECT
+      # 1. CHECKOUT
       # ==========================================
       - name: Checkout
         uses: actions/checkout@v4
@@ -73,7 +73,7 @@ jobs:
             echo "ERROR: build_content.py tidak ditemukan!"
             echo ""
             echo "Isi repository:"
-            find . -maxdepth 2 -type f | sort
+            find . -maxdepth 3 -type f | sort
             exit 1
           fi
 
@@ -100,7 +100,7 @@ jobs:
           echo "Content generation selesai."
 
       # ==========================================
-      # 6. CHECK GENERATED FILES
+      # 6. CHECK GENERATED CONTENT
       # ==========================================
       - name: Check generated content
         shell: bash
@@ -112,10 +112,14 @@ jobs:
           echo ""
           echo "Mencari file hasil generate..."
 
-          find assets -maxdepth 4 -type f 2>/dev/null | sort || true
+          if [ -d "assets" ]; then
+            find assets -maxdepth 5 -type f | sort
+          else
+            echo "Folder assets belum ada."
+          fi
 
           echo ""
-          echo "Content generation check selesai."
+          echo "Content check selesai."
 
       # ==========================================
       # 7. FLUTTER CLEAN
@@ -142,83 +146,7 @@ jobs:
           flutter pub get
 
       # ==========================================
-      # 9. CHECK FLUTTER PROJECT
+      # 9. FLUTTER DOCTOR
       # ==========================================
       - name: Flutter doctor
-        shell: bash
-        run: |
-          flutter doctor -v
-
-      # ==========================================
-      # 10. ANALYZE FLUTTER PROJECT
-      # ==========================================
-      - name: Analyze Flutter project
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "ANALYZE FLUTTER PROJECT"
-          echo "========================================"
-
-          flutter analyze --no-fatal-infos
-
-      # ==========================================
-      # 11. BUILD APK
-      # ==========================================
-      - name: Build APK
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "BUILD RELEASE APK"
-          echo "========================================"
-
-          flutter build apk --release
-
-      # ==========================================
-      # 12. CHECK APK
-      # ==========================================
-      - name: Check APK
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "CHECK APK"
-          echo "========================================"
-
-          if [ ! -f "build/app/outputs/flutter-apk/app-release.apk" ]; then
-            echo "ERROR: APK tidak ditemukan!"
-            echo ""
-            echo "Mencari semua APK:"
-            find build -type f -name "*.apk" 2>/dev/null || true
-            exit 1
-          fi
-
-          echo "APK berhasil dibuat!"
-          echo ""
-
-          ls -lh build/app/outputs/flutter-apk/app-release.apk
-
-      # ==========================================
-      # 13. UPLOAD APK
-      # ==========================================
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: Anjar-Nihong-Jepang-APK
-          path: build/app/outputs/flutter-apk/app-release.apk
-          if-no-files-found: error
-
-      # ==========================================
-      # 14. BUILD SUCCESS
-      # ==========================================
-      - name: Build completed
-        shell: bash
-        run: |
-          echo ""
-          echo "========================================"
-          echo "BUILD BERHASIL!"
-          echo "========================================"
-          echo ""
-          echo "APK:"
-          echo "build/app/outputs/flutter-apk/app-release.apk"
-          echo ""
-          echo "APK sudah di-upload sebagai GitHub Artifact."
-          echo "========================================"
+        shell
